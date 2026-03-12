@@ -7,7 +7,7 @@ import ollama
 from openai import OpenAI
 
 class LLMEngine:
-    def __init__(self, model: str):
+    def __init__(self, model: str, stream: bool=False):
         self.model = model
         self.stream = stream
 
@@ -20,17 +20,17 @@ class OllamaLLMEngine(LLMEngine):
     def __init__(self, model: str="gpt-oss:20b", stream: bool=False):
         super().__init__(model, stream)
         # OPENAI_API_KEY environment variable require
-        self.client = OpenAI()
 
     def generate(self, prompt: str) -> str:
-        response = ollama.generate(self.model, prompt=input_text, stream=False)
-        return response["message"]["content"]
+        response = ollama.generate(self.model, prompt=prompt, stream=False)
+        return response["response"]
 
 load_dotenv(".env")
     
 class OpenAILLMEngine(LLMEngine):
     def __init__(self, model: str="gpt-5-nano", stream: bool=False):
         super().__init__(model, stream)
+        self.client = OpenAI()
 
     def generate(self, prompt: str) -> str:
         response = self.client.responses.create(
