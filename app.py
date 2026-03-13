@@ -6,13 +6,16 @@ from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
 
 from qdrant_engine import QdrantEngine
-from llm_engine import OllamaLLMEngine, OpenAILLMEngine
+from llm_engine import OllamaLLMEngine, OpenAILLMEngine, AnthropicLLMEngine
 
 app = FastAPI()
 qdrant = QdrantEngine(db_path="qdrant",
                       collection_name="chunks",
                       embedding_model="BAAI/bge-small-en-v1.5")
-llm_engine = OllamaLLMEngine(model="gpt-oss:20b", stream=False)
+
+ollama_llm_engine = OllamaLLMEngine(model="gpt-oss:20b", stream=False)
+openai_llm_engine = OpenAILLMEngine(model="gpt-5-nano", stream=False)
+anthropic_llm_engine = AnthropicLLMEngine(model="claude-haiku-4-5", stream=False)
 
 class ChatRequest(BaseModel):
     model: str = "gpt-oss:20b"
@@ -30,8 +33,15 @@ def generate(request: ChatRequest):
     prompt += '\n'.join(domain_knowledge)
     prompt += f"\nUser Query: {request.prompt}"
 
-    text = llm_engine.generate(prompt)
+    if request.model == "gpt-oss:20b":
+        text = ollama_llm_engine.generate(prompt)
+    elif request.model == "gpt-5-nano":
+        text = openai_llm_engine.generate(prompt)
+    elif request.model == "claude-haiku-4-5":
+        text = anthropic_llm_engine.generate(prompt)
+    else:
+        return {"response": f"{request.model} not supported"}
 
     return {"response": text}
 
-# curl -X POST http://127.0.0.1:8000/api/generate -H "Content-Type: application/json" -d '{"model": "gpt-oss:20b", "prompt": "hello"}'
+# curl -X POST http://10.10.50.5:8000/api/generate -H "Content-Type: application/json" -d '{"model": "gpt-oss:20b", "prompt": "hello"}'
