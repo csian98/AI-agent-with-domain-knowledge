@@ -1,0 +1,3139 @@
+=== PAGE 1 ===
+
+Licensing (For
+
+PathWave Advanced
+Design System 2022
+r Administrators)
+PDF Generated on
+Jul 17, 2022
+
+=== PAGE 2 ===
+
+Notices
+© Keysight Technologies Incorporated, 2002-2022
+1400 Fountaingrove Pkwy., Santa Rosa, CA 95403-1738, United States All rights reserved.
+No part of this documentation may be reproduced in any form or by any means (including electronic storage
+and retrieval or translation into a foreign language) without prior agreement and written consent from
+Keysight Technologies, Inc. as governed by United States and international copyright laws.
+Restricted Rights Legend
+If software is for use in the performance of a U.S. Government prime contract or subcontract, Software is
+delivered and licensed as "Commercial computer software" as defined in DFAR 252.227-7014 (June 1995),
+or as a "commercial item" as defined in FAR 2.101(a) or as "Restricted computer software" as defined in FAR
+52.227-19 (June 1987) or any equivalent agency regulation or contract clause.
+Use, duplication or disclosure of Software is subject to Keysight Technologies' standard commercial license
+terms, and non-DOD Departments and Agencies of the U.S. Government will receive no greater than
+Restricted Rights as defined in FAR 52.227-19(c)(1-2) (June 1987). U.S. Government users will receive no
+greater than Limited Rights as defined in FAR 52.227-14 (June 1987) or DFAR 252.227-7015 (b)(2)
+(November 1995), as applicable in any technical data.
+Portions of this software are licensed by third parties including open source terms and conditions.
+For detail information on third party licenses, see Notice.
+
+=== PAGE 3 ===
+
+Licensing (For Administrators)
+Contents
+Licensing (For Administrators)........................................................................................................... 6
+Licensing Overview ............................................................................................................................ 7
+Licensing Overview ..........................................................................................................................7
+Contents........................................................................................................................................ 7
+License Server Supported Platforms...............................................................................................8
+License Server Supported Platforms............................................................................................ 8
+License Types................................................................................................................................ 10
+License Types.............................................................................................................................. 10
+Floating Licenses ........................................................................................................................ 11
+Node-locked Licenses ................................................................................................................ 12
+Recognize License Type ............................................................................................................. 13
+Licensing Architecture .................................................................................................................. 15
+Understand Your License File ....................................................................................................... 16
+Contents...................................................................................................................................... 16
+License File Structure ................................................................................................................. 17
+License File Syntax ..................................................................................................................... 22
+Licensing Attributes ......................................................................................................................... 25
+User-Display-Host (UDH) ............................................................................................................. 25
+License Security............................................................................................................................ 25
+License Counting .......................................................................................................................... 26
+Job Control ................................................................................................................................... 26
+License Version Compatibility ......................................................................................................... 28
+License Version Compatibility ...................................................................................................... 28
+Contents...................................................................................................................................... 28
+FlexNet Version Compatibility ...................................................................................................... 29
+FlexNet Version Compatibility .................................................................................................... 29
+License Codeword Version Compatibility..................................................................................... 30
+License Codeword Version Compatibility................................................................................... 30
+Licensing Behavior........................................................................................................................... 35
+Session Start-up Flow .................................................................................................................. 36
+Active or In-Session Flow ............................................................................................................. 36
+Setting Up Licenses on Windows .................................................................................................... 37
+3
+
+=== PAGE 4 ===
+
+Licensing (For Administrators)
+Contents........................................................................................................................................ 37
+Setting Up Floating License on Windows .................................................................................... 38
+Step 1: License Server Setup ..................................................................................................... 38
+Step 2: Client Setup.................................................................................................................... 38
+Setting Up Nodelocked License on Windows .............................................................................. 39
+License tied to a CPU ID ............................................................................................................. 39
+License tied to USB Dongle ........................................................................................................ 42
+Setting Up Licenses on Linux .......................................................................................................... 43
+Setting Up Floating License on Linux ........................................................................................... 44
+Step1: License Server Setup ...................................................................................................... 44
+Step 2: Client Setup.................................................................................................................... 44
+Setting Up Node-Locked License on Linux .................................................................................. 45
+License tied to CPU ID ................................................................................................................ 45
+License tied to USB Dongle ........................................................................................................ 47
+Licensing Tools ................................................................................................................................ 50
+License Manager........................................................................................................................... 51
+Product Selector ........................................................................................................................... 52
+Using Product Selector............................................................................................................... 52
+Advanced Licensing Configuration Options .................................................................................... 55
+Accessing Licenses through a Firewall......................................................................................... 56
+Creating Options File .................................................................................................................... 57
+License Environment Variables..................................................................................................... 58
+Multiple Server Configurations..................................................................................................... 61
+Remote and Distributed Simulation Licenses .............................................................................. 62
+Remote Simulation Licenses ...................................................................................................... 62
+Distributed Simulation Licenses ................................................................................................. 62
+License Retry .............................................................................................................................. 64
+Licensing FAQs ................................................................................................................................. 65
+Licensing - FAQs ........................................................................................................................... 65
+Troubleshooting License Problems ................................................................................................. 71
+Prerequisites ................................................................................................................................. 71
+Where to Access the FlexNet utilities for Command Line Use .................................................. 71
+How to Reference License Server .............................................................................................. 72
+4
+
+=== PAGE 5 ===
+
+Licensing (For Administrators)
+Product specific license settings ................................................................................................ 72
+Troubleshooting Flow and Process............................................................................................... 72
+Step 1: Verify license server machine is running, FlexNet daemon versions, license server
+communications.......................................................................................................................... 73
+Step 2: Verify client is able to access license server ................................................................. 75
+Step 3: Verify pool and accessibility of available licenses......................................................... 76
+FlexNet Communications Problems ............................................................................................. 81
+Glossary and Abbreviations ............................................................................................................. 84
+5
+
+=== PAGE 6 ===
+
+Licensing (For Administrators)
+Licensing (For Administrators)
+This document is intended for use by CAD administrators and end users (who perform advanced
+configuration tasks) as an aid in managing Keysight EEsof licensing, which utilizes the FlexNet
+licensing solution. For additional information on FlexNet, refer to theFlexNet Publisher’s License
+Administration Guide. This document focuses on recommendations and information specific to the
+Keysight EEsof licensing scheme.
+Licensing Overview
+Licensing Attributes
+License Version Compatibility
+Licensing Behavior
+Setting Up Licenses on Windows
+Setting Up Licenses on Linux
+Licensing Tools
+Advanced Licensing Configuration Options
+Licensing FAQs
+Troubleshooting License Problems
+6
+
+=== PAGE 7 ===
+
+Licensing (For Administrators)
+Licensing Overview
+Licensing Overview
+Licensing governs the usage of a product. This section provides an overview of Keysight EEsof
+Licensing. It covers different types of supported licenses, information on how to recognize your
+license type, description of a typical license file (.lic extension), supported platforms for License
+Servers and license architecture that governs the licensing behavior.
+Contents
+License Server Supported Platforms
+License Types
+Licensing Architecture
+Understand Your License File
+7
+
+=== PAGE 8 ===
+
+)srotartsinimdAroF(gnisneciL
+smroftalPdetroppuSrevreSesneciL
+smroftalPdetroppuSrevreSesneciL
+.srevreSesneciLrofsmroftalptib-46detroppusehtstsilelbatgniwollofehT
+xuniLeSuS
+xuniLeSuS
+xuniLtaHdeR
+xuniLtaHdeR
+xuniLtaHdeR
+01swodniW
+7swodniW
+esneciLfosEE
+21SELS
+11SELS
+8LEHR
+7LEHR
+6LEHR
+esirpretnE
+noisreV
+40.8102 20.9102
+
+20.0202 20.1202 20.2202
+dnegeL
+detroppuS
+detroppusnU
+8
+
+=== PAGE 9 ===
+
+)srotartsinimdAroF(gnisneciL
+.srevreSesneciLsuoiverProfsmroftalPdetroppuSees,srevresesnecilsuoiverpnonoitamrofniroF
+
+9
+
+=== PAGE 10 ===
+
+Licensing (For Administrators)
+License Types
+License Types
+Keysight EEsof licensing scheme supports only counted licenses that are either node-locked or
+floating .
+For details on License File structure and syntax, refer to Understand Your License File.
+Contents
+Floating Licenses
+Node-locked Licenses
+Recognize License Type
+10
+
+=== PAGE 11 ===
+
+Floating Licenses
+Floating Licenses
+In case of a floating (network) license , the Keysight EEs
+more client machines and uses the environment variable
+the license server. Both license server manager (lmgrd)
+license server system.
+Figure: Floating License Setup
+11
+
+Licensing (For Administrators)
+sof software application is installed on one or
+e <PRODUCT>_LICENSE_FILE to point to
+and vendor daemon (agileesofd) run on the
+
+=== PAGE 12 ===
+
+Licensing (For Administrators)
+Node-locked Licenses
+Node-locked License
+A node-locked license permits the software to run on only one machine. Both license server
+manager (lmgrd) and vendor daemon (agileesofd) run on the local machine for which the license is
+issued.
+Figure: Nodelocked License Setup
+12
+
+=== PAGE 13 ===
+
+Recognize License Type
+You can determine the license type to be node-loc
+lines in your license file.
+Node-locked License
+The INCREMENT line corresponding to a node-loc
+server machine or the FlexNet ID of the dongle in
+Example 1: Node-locked license tied to a CPU ID
+SERVER this_host D8D385997F8A
+VENDOR agileesofd
+INCREMENT b_core agileesofd 3.0 14-sep-2013
+VENDOR_STRING="D8D385997F8AP=#1,7,8,13,14,2
+,156D=#W2200BP,ADS_Core;e_core :
+MUFNCUI WQDZPFX QTBMCYE SW2TFGC OWKGNHJ UIB
+ISSUER=LICENSEID=1598592 START=19-Sep-2012
+SIGN="033F C701 6926 5CB6 5505 F6EC D5EE E3
+D5C0 9374 AE0F 2F68 24CD"
+As shown above, presence of HOSTID=d8d385997
+CPU of the ID d8d385997f8a .
+Example 2: Node-locked license tied to a USB do
+SERVER this_host FLEXID=10-0BEBCD44
+VENDOR agileesofd
+INCREMENT b_core agileesofd 3.0 14-sep-2013
+VENDOR_STRING="10-0BEBCD44P=#1,7,8,13,14,25
+,156D=#W2200BP,ADS_Core;e_core :
+MUFNCUI WQDZPFX QTBMCYE SW2TFGC OWKGNHJ UIB
+big></b> ISSUER=LICENSEID=1598593 START=19-
+SIGN="002F CADB 63C8 0FCE DF16 BBA4 4AAB A3
+791E 0615 BD0B D95F 87C5"
+As shown above, presence of HOSTID=FLEXID=10
+tied to a dongle of the ID 10-0BEBCD44 .
+13
+
+Licensing (For Administrators)
+cked or floating by looking at the INCREMENT
+cked license embeds the CPU ID of the license
+the HOSTID= part of the statement.
+3 1
+25,27,66,67,105,110,116,131,132
+B" <b><big>HOSTID=d8d385997f8a</big></b>
+3FE F302 A765 9201 008B E71B FE5B 2308 EE8F
+7f8a indicates that codeword b_core is tied to a
+ongle
+3 1
+5,27,66,67,105,110,116,131,132
+B" <b><big>HOSTID=FLEXID=10-0BEBCD44</
+-Sep-2012
+335 B54F F121 3A02 79A9 D9A9 A701 F727 AAF8
+0-0BEBCD44 indicates that codeword b_core is
+
+=== PAGE 14 ===
+
+Licensing (For Administrators)
+Floating License
+An INCREMENT line that does not have the HOSTI
+to be a floating (network) license .
+Example 1: Floating license tied to a CPU ID
+SERVER delly 001EC940F06A 27001
+VENDOR agileesofd
+INCREMENT b_cct_layout_momentum agileesofd
+VENDOR_STRING="001EC940F06AP=#1,2,3,4,7
+7,55,62,63,65,66,67,68,105,106,107,108,109,
+156
+,1001007D=#W2214BT,ADS_Core+Layout+CircuitS
+nvelope,e_sim_harmonic,e_sim_momentum,e_sim
+: CNRHDNH JB1CQEZ RXYAGCK RXFTSLT KBJMB
+QGY1OEZ QGAUHJL U" START=10-aug-2012 SI
+CE05 08DB 0539 D627 D41B C8BC 8C00 5000
+06F3 E837 63C4 4B05 31DE"
+As shown above, no HOSTID in the INCREMENT l
+b_cct_layout_momentum is a floating license.
+See Also
+Setting up Licenses on Windows
+Setting up Licenses on Linux
+
+ID= identifier embedded in it indicates the license
+3.0 07-feb-2014 10
+7,8,9,10,11,13,14,18,19,20,22,23,24,25,26,2
+,110,111,115,116,131,132,133,135,154,155,
+Sim+MomentumG2;e_core,e_phys_layout,e_sim_e
+m_trans_conv
+BHA JIYPOUK DFYPRWE
+IGN="0118 C5B9 0443 57BB
+0 EA38 3BF4 B1A5 9E8D
+line indicates that codeword
+14
+
+=== PAGE 15 ===
+
+Licensing (For Administrators)
+Licensing Architecture
+Keysight EEsof licensing architecture comprises of three components to manage the licensing
+scheme:
+Keysight EEsof Vendor Daemon (agileesofd) to manage product licenses
+FlexNet Daemon (lmgrd) to manage servers
+Keysight EEsof Application Client to manage feature requests.
+Figure: Keysight EEsof Licensing Architecture
+15
+
+=== PAGE 16 ===
+
+Licensing (For Administrators)
+Understand Your License File
+The license file contain codewords that allow you to use specific features of an Keysight EEsof
+product.
+Contents
+License File Structure
+License File Syntax
+16
+
+=== PAGE 17 ===
+
+Licensing (For Administrators)
+License File Structure
+License File Structure
+A license file contains two major sections - License Summary Header and License Codewords.
+License Summary Header
+License summary header provides an overview of all the codewords included in the license file and
+setup instructions.
+Sample License Summary Section
+#======================================================================
+# SUPPORT
+#======================================================================
+# If you are unable to set up your license file then please contact
+# Keysight EEsof EDA Technical Support:
+# US - 800-473-3763 or eesof-usa_support@keysight.com
+# Asia - eesof-asia_support@keysight.com
+# Australia: 1800-629-485
+# China: 800-810-0189
+# Hong Kong: 800-938-693
+# India: 1800-11-2626
+# Malaysia: 1800-888-848
+# Singapore: 1800-375 8100
+# Taiwan: 0800-047-866
+# Thailand: 1800-375-8100
+# Korea: 080-769-0800
+# Europe: 1-800-473-EESOF (1-800-473-3673) or eesof-
+europe_support@keysight.com
+# Japan: 81 (426) 60-8416 or eesof-japan_support@keysight.com
+17
+
+=== PAGE 18 ===
+
+Licensing (For Administrators)
+# or visit: http://www.keysight.com
+# THIS LICENSE HAS BEEN GENERATED FOR
+#=====================================
+# LICENSE SUMMARY
+#
+# All "LICENSE pjc_XXX" lines are for
+Please ignore
+#=====================================
+# This is a list of options contained
+#License Description
+Expiration Qty Version Hostid
+#
+#W2200BP-1FP Node-locked licen
+10-AUG-2014 1 3.1 0005ccccaaaa
+#LICENSE NAME b_core
+#
+#
+#=====================================
+# LEGAL
+#=====================================
+# The Use of this license file is acce
+terms and conditions.
+#
+#=====================================
+# QUICK START INSTRUCT
+#=====================================
+#
+# LICENSE Server Setup for 2011+ versi
+#
+# Windows Platforms:
+# 1) Place this file on machine where
+tied licenses, ensure this file is pla
+agrees with
+# the one appearing in the SERVER
+license, ensure this file is placed on
+inserted.
+# 2) If this is a dongle tied license
+supplied USB dongle
+# 3) Start your Agilent EEsof or Keys
+Manager will open up. Do the followin
+# A) In the center of the dialog b
+install" or "I want to add or replace
+
+m/find/eesof-support
+HOSTID 0005ccccaaaa
+==================================
+EEsof license functionality only -
+==================================
+in this license file
+nse ADS Core
+===================================
+===================================
+eptance of Keysight EDA Licensing usage
+===================================
+TIONS
+===================================
+ion software:
+e file is intended: For MAC address
+aced on the machine whose MAC address
+line of this file. For dongle tied
+n the machine where the dongle is
+e, insert your Agilent or Keysight
+sight EEsof EDA product. The License
+ng:
+box, select "I have a license file to
+a license file" and press "Next"
+18
+
+=== PAGE 19 ===
+
+# B) The License Setup Wizard appe
+the path to your license file. Press
+you are ready to go!
+#
+#
+# Linux/UNIX
+#
+# 1) Place this file on the license s
+For MAC address tied licenses, it is t
+# agrees with the one appearing in
+dongle tied license, it is the machine
+# 2) Acquire latest FLEXnet bits arch
+www.keysight.com/find/eesof-flexnet-do
+contents to a desired folder.
+# A) IF License server not previou
+run ./lmgrd .c <Path-To-License-File>
+# B) IF License server previously
+licensing software: From FLEXnet folde
+License-File>
+#
+#
+#
+# LICENSE Client Setup
+#
+# Windows: No environment variable ne
+through wizard interface. Appropriate
+Windows Registry. Do not explicitly d
+variable.
+#
+#
+# Linux/Unix: Define {PRODUCT}_LICENSE
+environment where PRODUCT=ADS, EMPRO,
+# Set value to port@<License-Serv
+ADS_LICENSE_FILE = 27000@EDAToolsServe
+#
+#
+#
+# LICENSE Setup for ADS Pre-2011 softw
+Keysight EEsof EDA software installed
+# Windows Platform:
+#==================
+# 1) If you have not already done so,
+Licensing software Installation execut
+# www.keysight.com/find/eesof-flex
+local disk. Then install licensing sof
+# 2) Open a Windows command prompt as
+# 3) Change directories to installati
+example, C:\Program Files\keysight\EEs
+19
+
+Licensing (For Administrators)
+ears. Press the "Add" button and enter
+s "Next". The wizard does the rest and
+server machine where file is intended:
+the machine whose MAC address
+n the SERVER line of this file. For
+e where the dongle is inserted.
+hive file from http://
+ownloads and then unarchive file
+usly installed: From FLEXnet folder,
+-l <Path-To-Flex-Output-File>
+installed and it is running the latest
+er, run ./lmutil lmreread .c <Path-To-
+eeded. License Manager sets this up
+system variables are entered into
+define License path environment
+E_FILE in your license client
+ICCAP, or GOLDENGATE.
+ver-Name>. For example,
+er.somecompany.com
+ware with NO 2011+ Agilent EEsof or
+, download the latest Keysight EDA
+table from,
+xnet-downloads to temporary place on
+ftware using "Run as Administrator".
+s Administrator
+ion bin folder EEsof License Tools. For
+sof_License_Tools\bin
+
+=== PAGE 20 ===
+
+Licensing (For Administrators)
+# 4) Make note of the codeword versio
+file or can be found as in the INCREME
+fourth item on the line. For example,
+# 5) Run the following command: aglm
+EXAMPLE: aglmwizard.exe -v 3.1
+# 6) A wizard interace appears. You
+in the drop down that appears. Select
+licenses in this license file. Press "
+# 7) Select the appropriate Keysight
+the drop down menu and then proceed in
+# 8) You will now be presented with a
+a license file to install" or "I want
+press "Next".
+# 9) You will now enter the path for
+# 10) In Windows System Properties, de
+@<machine-where-this-license-file-is-i
+#
+# Linux/UNIX:
+#============
+# 1) Define AGILEESOFD_LICENSE_FILE i
+# 2) Refer to instructions above for
+#
+#
+#
+#
+#========================LICENSE KEYS
+#
+SERVER this_host 0005ccccaaaa
+VENDOR agileesofd
+#
+INCREMENT b_core agileesofd 3.1 10-aug
+VENDOR_STRING="0005ccccaaaaP=#1,7,8,13
+6D=#W2200BP,ADS_Core;e_core : QUAQRWX
+HOSTID=0005ccccaaaa ISSUER=LICENSEID=3
+54FA 1602 6455 96F9 2CD6 61E9 685E 8F4
+6828 DD4A C924 3253 857A"
+INCREMENT pjc_b_core agileesofd 3.1 10
+VENDOR_STRING="0005ccccaaaa : NFSAQCO
+YAUEQEF ZUAQRWX" HOSTID=0005ccccaaaa I
+Jul-2014 SIGN="0037 C92D F4DE 7805 9AE
+0E56 668F A750 411E A2BD 701A 2F1F 945
+#
+#=========================LICENSE END=
+
+on which appears at top of this license
+ENT lines below in the file. It is the
+3.1.
+mwizard.exe -v <codeword version>
+will be required to select a product
+the product that corresponds to the
+"Next"
+EDA product you will be licensing in
+n the wizard. Press "Next"
+a few different options. Select "I have
+to add or replace a license file" and
+your license file. Then press "Next".
+efine AGILEESOFD_LICENSE_FILE to
+installed>
+in your license client environment
+Linux License Server setup.
+START HERE=======================
+g-2014 1
+3,14,25,27,66,67,105,110,116,131,132,15
+FSAQCOV DNLFVCD IFQVEZR XYAUEQE FZ"
+3679917 START=11-Jul-2014 SIGN="02DB
+42 36AE 8603 FC38 B354 B232 FAFB 844A
+0-aug-2014 1
+VDNH1FU YUHLODI F1GSHFU WXJEZRX
+ISSUER=LICENSEID=3679917 START=11-
+E2 A1BF C7AA 7704 F720 EE90 7B01 2305
+52 9BAA"
+===================================
+20
+
+=== PAGE 21 ===
+
+License Codewords
+License codewords follow FlexNet format and cont
+Sample License Codewords Section
+# sample license file
+SERVER this_host D8D385997F8A
+VENDOR agileesofd
+INCREMENT b_core agileesofd 3.0 14-sep-
+VENDOR_STRING="D8D385997F8AP=#1,7,8,13,
+6D=#W2200BP,ADS_Core;e_core : MUFNCUI W
+HOSTID=d8d385997f8a ISSUER=LICENSEID=15
+C701 6926 5CB6 5505 F6EC D5EE E3FE F302
+D5C0 9374 AE0F 2F68 24CD"
+INCREMENT pjc_b_core agileesofd 3.0 14-
+VENDOR_STRING="D8D385997F8A : RQHSXF2 A
+EZRXYAU EQEFZHA" HOSTID=d8d385997f8a IS
+Sep-2012 SIGN="031A EA80 70C0 60D1 CAC4
+F500 45F4 25F1 0B27 0DD1 6919 3CEC 119F
+21
+
+Licensing (For Administrators)
+tains the server, vendor, and increment lines.
+-2013 1
+,14,25,27,66,67,105,110,116,131,132,15
+WQDZPFX QTBMCYE SW2TFGC OWKGNHJ UIB"
+598592 START=19-Sep-2012 SIGN="033F
+2 A765 9201 008B E71B FE5B 2308 EE8F
+-sep-2013 1
+AQCOVRN H1FUYQN LMDYFPG SHFUWXJ
+SSUER=LICENSEID=1598592 START=19-
+4 B206 DD99 C63F DB63 9DB8 E901 B4E8
+F FD6F"
+
+=== PAGE 22 ===
+
+Licensing (For Administrators)
+License File Syntax
+License File Syntax
+This section provides a brief overview of the syntax of the statements included in the License
+Codewords section of the license file. For further details, refer to the License File Syntax in FlexNet
+Publisher’s License Administration Guide.
+The License Codewords section, usually contains three pieces of information: the SERVER line, the
+VENDOR line, and all the INCREMENT lines representing the licensed codewords.
+SERVER Line Syntax
+Keysight supports both single server and redundant servers, as per FlexNet standard configurations.
+In case of single server, the SERVER line syntax is:
+SERVER this_host <hostid> [port]
+In case of redundant servers, the SERVER line syntax is:
+SERVER <hostname1> <hostid1> <port>
+SERVER <hostname2> <hostid2> <port>
+SERVER <hostname3> <hostid3> <port>
+where,
+hostname1, hostname2, hostname3 are the system host names or IP address. String returned by the
+hostname or uname –n command on UNIX; or by the ipconfig /all command on Windows. Note that
+redundant servers should all have the same OS, that is, you cannot have one server on Windows, and
+another on Linux.
+hostid, hostid1, hostid2, hostid2 are usually the string returned by the lmhostid command. This is
+specified in the issued license file by Keysight EEsof.
+Port is the TCP/IP port number to use. This is an optional field for single server configuration, but is a
+required field for redundant server configuration. A valid number is any unused port number between 0
+and 64000. On UNIX, choose a port number greater than 1024, because anything less than or equal to
+1024 are reserved. If no TCP/IP port number is specified, one of the default ports in the range of 27000
+through 27009 is used.
+this_host is the generic host name for the computer for which the node-locked license is issued, and
+can be used as is without replacing it with the real computer host name in that case.
+22
+
+=== PAGE 23 ===
+
+VENDOR Line Syntax
+The VENDOR line specifies the vendor daemon in
+VENDOR agileesofd [<path_to_agileeso
+<options_file_path> agileesofd.opt] [ [
+Example 1
+VENDOR agileesofd
+Example 2
+VENDOR agileesofd C:\Program Files\Keys
+C:\Program Files\Keysight\EEsof_License_
+PORT=5346
+where,
+agileesofd is the name of Keysight EEsof ve
+C:\Program Files\Keysight\EEsof_L
+name to the vendor daemon executable.
+C:\Program Files\Keysight\EEsof_L
+is the full path-name to the FlexNet options f
+5346 is the specified TCP/IP port number for
+INCREMENT Line Syntax
+The INCREMENT line specifies information about
+daemon name, license version, license expiration
+the important information included. The INCREME
+INCREMENT <feature> agileesofd <li
+<license_count> VENDOR_STRING =<Keysigh
+=<hostid>] START =<license_start_date>
+authenticate this INCREMENT line>
+Example
+INCREMENT b_core agileesofd 3.0 06-feb-201
+VENDOR_STRING="D8D385997F8AP=#1,7,8,13,14,
+,156D=#W2200BP,ADS_Core;e_core :
+MUFNCUI WQDZPFX QTBMCYE SW2TFGC OWKGNHJ UI
+ISSUER=LICENSEID=1598592
+START=19-Sep-2012 SIGN="033F C701 6926 5CB
+E71B FE5B 2308 EE8F D5C0 9374 AE0F 2F68 24
+where,
+b_core is the name of the feature being licen
+23
+
+Licensing (For Administrators)
+nformation. The VENDOR line syntax is:
+ofd> agileesofd ] [ [OPTIONS=]
+[PORT=] port]
+sight\EEsof_License_Tools\bin\agileesofd
+_Tools\bin\licenses\agileesofd.opt
+endor daemon.
+License_Tools\bin\agileesofd is the full path-
+License_Tools\bin\licenses\agileesofd.opt
+file.
+the vendor daemon.
+a licensed codeword. Codeword name, vendor
+n date, license count, and vendor string are some of
+ENT line syntax is:
+icense_version> <license_expiry_date>
+ht_eesof_vendor_string> [ HOSTID
+SIGN =<encoded signature to
+13 1
+,25,27,66,67,105,110,116,131,132
+IB" HOSTID=d8d385997f8a
+B6 5505 F6EC D5EE E3FE F302 A765 9201 008B
+4CD"
+nsed.
+
+=== PAGE 24 ===
+
+Licensing (For Administrators)
+agileesofd is the name of Keysight EEsof vendor daemon.
+3.0 is the license version.
+06-feb-2013 is the expiration date of license.
+1 is the number of license(s).
+24
+
+=== PAGE 25 ===
+
+Licensing (For Administrators)
+Licensing Attributes
+Keysight EEsof Licensing Behavior is administered by the following attributes:
+User-Display-Host (UDH)
+License Security
+License Counting
+Job Control
+User-Display-Host (UDH)
+All Keysight EEsof licenses are counted, with User-Display-Host as the base of forming the license
+checkout identify. Each unique User-Display-Host consumes one count of a license. Additional
+licenses are required if user, display or host is changed. For example, the following cases would
+cause an additional count of license to be checked out:
+A second user logs on the same host. This is because user is changed.
+The user moves to another terminal and launches another session of the product. This is because
+display is changed.
+License Security
+All Keysight EEsof licenses are secured by codewords, which are tied to a CPU ID or a USB dongle .
+CPU ID: Specifies the unique ID of a computer. It uses the physical address (hostid) of your computer.
+USB Dongle: Uses the dongle ID (or the FlexNet ID) of your USB dongle.
+Our licensing scheme supports counted node-locked licenses and floating licenses.
+Node-locked License: A node-locked license can be used on a specific computer to which the license
+is tied. It allows an Keysight EEsof Product to be used on a single computer with a single display by a
+single user. The user, license, and computer must physically co-locate.
+Floating (Network) License: A floating (network) license can be shared among multiple users across a
+computer network. Floating license support is provided for a single and multiple servers (including
+distributed product servers, peak servers, and redundant servers). With a floating license, an individual
+feature contained in a bundle or element can be run locally or remotely by a single user.
+Keysight's Licensing, on a best effort basis, supports remote access via Windows Remote Desktop,
+VNC, Citrix, and Exceed. A floating license is required for remote access. This functionality is not
+supported with a node-locked license.
+Example
+A user starts an ADS session on Computer A. One core bundle with simulator license is checked
+out. If the same user tries to launch another ADS session using Remote Desktop, an additional
+license will be checked-out because the host has changed.
+25
+
+=== PAGE 26 ===
+
+Licensing (For Administrators)
+License Counting
+Keysight EEsof licensing supports only counted licenses. The count associated with a license
+specifies the maximum concurrent use of that license. Each Keysight EEsof license comes in the
+form of a bundle or an element, which in turn contains one or more features.
+Figure: Bundles and Elements Composition
+When a license count limit is reached, that license is no longer available for additional use.
+Job Control
+Some features contained in a bundle or an element, are job controlled. Job control limits the
+concurrent use of a feature. Simulators and models are typically job controlled features. Most job
+controlled features have a job-control limit of one-Harmonic Balance simulator, Momentum
+simulator, LTE wireless library are examples of this class—and some have greater than one limit to
+support parallel computing—Momentum turbo, 8-pack transient/convolution, quad-pack
+GoldenGate simulation are some of the examples of this type.
+In Contrast to job controlled features, non job-controlled features entitle a single UDH to share one
+count of the license unlimited times. Environment GUI features are typically of this type.
+26
+
+=== PAGE 27 ===
+
+Figure: Job Control of Features
+27
+
+Licensing (For Administrators)
+
+=== PAGE 28 ===
+
+Licensing (For Administrators)
+License Version Compatibility
+License Version Compatibility
+This section provides information on Keysight EEsof Licensing version Compatibility with various
+Product releases including FlexNet Version Compatibility information.
+Contents
+FlexNet Version Compatibility
+License Codeword Version Compatibility
+28
+
+=== PAGE 29 ===
+
+Licensing (For Administrators)
+FlexNet Version Compatibility
+FlexNet Version Compatibility
+FlexNet has a strict version compatibility rule that must be followed to ensure proper licensing
+behavior. Following are the key basic compatibility rules:
+1. lmgrd version must be greater than or equal to vendor daemon (agileesofd) version.
+2. Vendor daemon (agileesofd) version must be greater than or equal to the software applications.
+Starting from October 2013, Keysight EEsof’s new releases can no longer start up, if the above rules
+are not followed. The following error message gets displayed instead:
+The License Server/Client Mismatch warning message is displayed when the installed version of
+license server (lmgrd) and vendor daemon (agileesofd) appears to be older than the minimum
+required version. This warning message also displays the minimum required version.
+Figure: Warning Message for Example
+Refer to FlexNet Publisher’s License Administration Guide for further details.
+29
+
+=== PAGE 30 ===
+
+Licensing (For Administrators)
+License Codeword Version Compatibility
+License Codeword Version Compatibility
+Each Keysight software release comes with a base licens
+license codeword version is the minimum number that e
+Keysight EDA software also have an upper limit of the co
+enforces. This upper limit is set for an additional two ver
+software cannot run if the codeword version exceeds tha
+▪ When you mix codeword versions on a licens
+product that use different base license codew
+result in unexpected “ Licensed number
+this feature ” errors. To avoid this eith
+codeword version, if possible, or separate the
+onto separate license servers.
+▪ When you mix codeword versions compatible
+versions that exceed the upper limit for that
+version would take a longer time to obtain a
+FlexNet server until a compatible license vers
+performance degradation, we strongly recom
+licenses from those exceeding the upper limi
+two sets onto separate license servers.
+For License version compatibility of older releases, see L
+Releases).
+The following chart summarizes the license codeword ve
+software release.
+
+se codeword version requirement. The base
+enables a release to run. Some versions of
+odeword version that software release
+rsions beyond the base version. The
+at upper limit.
+se server and a user runs different versions of a
+word versions, extra licenses may be pulled and
+r of users already reached for
+her have all your licenses updated to use the latest
+e licenses by codeword version and put the two sets
+e for a given product release version with codeword
+same product release version, that product release
+license due to the additional requests made to
+sion is found. To avoid such a license checkout
+mmend you to separate out a compatible set of
+it for a given product release version and put the
+License Version Compatibility (Unsupported
+ersions compatible with each Keysight EEsof
+30
+
+=== PAGE 31 ===
+
+)srotartsinimdAroF(gnisneciL
+/tcudorP
+esaeleR
+9102
+9102
+0202
+0202
+0202
+1202
+1202
+1202
+2202
+2202
+2202
+3202
+SDA
+etadpU
+etadpU
+etadpU
+etadpU
+etadpU
+etadpU
+etadpU
+0.1
+0.1
+0.2
+0.1
+0.2
+0.1
+0.2
+.8102=>
+.9102=>
+.9102=>
+.9102=>
+.0202=>
+.0202=>
+.0202=>
+.0202=>
+.1202=>
+.1202=>
+.2202=>
+.2202=>
+esneciL
+40
+20
+20
+20
+20
+20
+20
+20
+20
+20
+20
+20
+drowedoC
+noisreV
+0202
+evaWtaeH
+
+2.3=>
+esneciL
+drowedoC
+noisreV
+9102
+0202
+0202
+1202
+1202
+1202
+2202
+ngiseDME
+etadpU
+etadpU
+etadpU
+)orPME(
+0.1
+0.1
+0.2
+.8102=>
+.9102=>
+.9102=>
+.0202=>
+.0202=>
+.0202=>
+.1202=>
+esneciL
+40
+20
+20
+20
+20
+20
+20
+drowedoC
+noisreV
+13
+
+=== PAGE 32 ===
+
+)srotartsinimdAroF(gnisneciL
+0202
+0202
+0202
+0202
+2202
+2202
+etaGnedloG
+etadpU
+etadpU
+etadpU
+etadpU
+0.1
+2.1
+3.1
+0.1
+.9102=>
+.9102=>
+.0202=>
+.0202=>
+.0202=>
+.2202=>
+esneciL
+20
+20
+20
+20
+20
+20
+drowedoC
+noisreV
+8102
+8102
+0202
+0202
+1202
+2202
+2202
+3202
+euVmetsyS
+etadpU
+etadpU
+etadpU
+0.1
+0.1
+2.0
+.7102=>
+.8102=>
+.9102=>
+.0202=>
+.0202=>
+.1202=>
+.2202=>
+.2202=>
+esneciL
+10
+40
+20
+20
+20
+20
+20
+20
+drowedoC
+noisreV
+
+8102
+0202
+2202
+syseneG
+.8102=>
+.9102=>
+.1202=>
+esneciL
+40
+20
+20
+drowedoC
+noisreV
+8102
+0202
+0202
+1202
+2202
+2202
+2202
+PAC-CI
+etadpU
+etadpU
+etadpU
+etadpU
+0.1
+0.2
+0.1
+0.2
+23
+
+=== PAGE 33 ===
+
+)srotartsinimdAroF(gnisneciL
+.7102=>
+.9102=>
+.9102=>
+.0202=>
+.0202=>
+.0202=>
+.0202=>
+esneciL
+10
+20
+20
+20
+20
+20
+20
+drowedoC
+noisreV
+9102
+0202
+orPrefaW
+etadpU
+etadpU
+sserpxE
+0.1
+0.1
+8102=>
+.9102=>
+esneciL
+40.
+20
+drowedoC
+noisreV
+9102
+0202
+0202
+0202
+2202
+3202
+PBM
+etadpU
+etadpU
+0.1
+0.2
+
+.8102=>
+.9102=>
+.9102=>
+.9102=>
+.1202=>
+.1202=>
+esneciL
+40
+20
+20
+20
+20
+20
+drowedoC
+noisreV
+9102
+0202
+0202
+0202
+2202
+3202
+AQM
+etadpU
+etadpU
+0.1
+0.2
+.8102=>
+.9102=>
+.9102=>
+.9102=>
+.1202=>
+.1202=>
+esneciL
+40
+20
+20
+20
+20
+20
+drowedoC
+noisreV
+33
+
+=== PAGE 34 ===
+
+)srotartsinimdAroF(gnisneciL
+noitpircseD
+dnegeL
+esaelerarofnoisrevdrowedocesabehtsetacidni
+x.xv
+elbaliavanehwerutufnidetroppuseblliwtahtnoisrevdrowedocehtsetacidni
+x.xv
+43
+
+=== PAGE 35 ===
+
+Licensing (For Administrators)
+Licensing Behavior
+This section outlines the Keysight EEsof licensing search behavior at the start-up of a product
+session, as well as during an active session.
+LicensingHot Swappingis not supported by Keysight EEsof Licensing scheme.
+Figure: EEsof Licensing Behavior
+35
+
+=== PAGE 36 ===
+
+Licensing (For Administrators)
+Session Start-up Flow
+While initiating an Keysight EEsof product session, if only one type of a bundle license is available
+on the license server, it is checked out and the software session starts immediately. However, if
+there are multiple bundle types to choose from, the Product Selector window is displayed, which
+allows the user to choose the most appropriate license to start with. You can preselect a license as
+the default for future sessions. To do so, in the Product Selector dialog box, select the license and
+check Always try to start with this selection option. Once checked, new start-up will automatically
+attempt to check-out the preselected license without displaying Product Selector in subsequent
+sessions. If the pre-selected license is denied, and more than one license is available to start the
+software, then Product Selector dialog box will be displayed once again.
+For more details on Product Selector, refer to the Product Selector section.
+CAD administrators can assign a startup bundle for a user and/or suppress the Product Selector from
+appearing by using the following environment variables:
+<PRODUCT>_PRODSEL_AUTOSTART
+<PRODUCT>_PRODSEL_PREVIOUS
+Refer tosection for more details.
+Active or In-Session Flow
+Once the start-up license is checked out, all subsequent license requests follow the logic depicted
+in the diagram above. In a nutshell, the start-up license is always attempted first; if fails, Elements ,
+Primitives, and Bundles are attempted in that order; also, within each group, the least capable is
+attempted before the more capable ones.
+FlexNet provides addition controls, such as EXCLUDE, MAXIMUM, for the CAD Administrators to limit the
+license usage. For details, refer to the FlexNet Publisher’s License Administration Guide.
+36
+
+=== PAGE 37 ===
+
+Licensing (For Administrators)
+Setting Up Licenses on Windows
+This section describes how to set up a node-locked license or a floating (network) license on
+Windows.
+
+Both node-locked and floating licenses require license server to get installed and started.
+For a node-locked license, license server and the client machine are the same machine
+(that is, your local machine). For a floating license, these can be separate machines.
+Contents
+Setting Up Floating License on Windows
+Setting Up Nodelocked License on Windows
+37
+
+=== PAGE 38 ===
+
+Licensing (For Administrators)
+Setting Up Floating License on Windows
+Setting up floating licenses on Windows is a two-step process where both server-side setup and
+client-side setup are needed.
+Step 1: License Server Setup
+To setup a dedicated floating license server that has no Keysight EDA software installed, you will need
+to download and install the EEsof EDA License Server Software. This will install the license daemons and
+utilities needed to configure and start the license server.
+Repeat the following steps for each license server you have.
+For licenses tied to a CPU ID , follow the steps 1 and 2 described in the Setting up Node-locked
+License on Windows section.
+For licenses tied to a USB Dongle, follow steps 1 through 3 described in the Setting up Node-locked
+License on Windows section.
+Step 2: Client Setup
+Once the license is configured successfully for all the license servers, configure each client
+computer to point to the network license server. License Setup Wizard offers the easiest method to
+get this done Alternatively, you can perform this step manually by following step 3 of Setting up
+Node-locked License on Windows section. Make sure to specify the network license server in the
+format of port@host.domain or if no static TCP port is used on the license server, use the format
+@host.domain.
+Examples
+27001@myServer.myCompany.com
+@myServer.myCompany.com
+In case a license server is down or is running slow, it is recommended to remove it from the server list
+using the License Setup Wizard to avoid any performance degradation caused by the dead/slow
+servers.
+38
+
+=== PAGE 39 ===
+
+Licensing (For Administrators)
+Setting Up Nodelocked License on Windows
+On Windows, the License Setup Wizard offers the easiest way to set up your node-locked license .
+We strongly recommend you to use the License Setup Wizard, especially when you have multiple
+Keysight EEsof products installed on one computer. For more information, refer to Quick Install-
+Windows. This section describes how to set up a node-locked license manually, should you decide
+not to use the License Setup Wizard.
+Do not perform manual setup steps with the License Setup Wizard. Choose one method or the other.
+License Setup Wizard may not be able to replace what you set up manually due to Administrator
+Privilege differences.
+The following instructions assume that you have already installed Keysight EEsof Licensing Tools in
+C:\Program Files\Keysight\EEsof_License_Tools folder. In case you have not yet installed the tools,
+run the Keysight EEsof Licensing Tools installer on the machine to which the license is tied to.
+If you have installed an EEsof product released before 1st August, 2014 on your system prior to
+installing an EEsof product released after 1st August, 2014 then the default EEsof Licensing tools
+path will remain C:\Program Files\Agilent\EEsof_License_Tools. On the
+systems that only have EEsof products released after 1st August, 2014 installed then the default
+EEsof Licensing tools path will be C:\Program
+Files\Keysight\EEsof_License_Tools.
+Make sure to save the license file on the same machine where you install the Keysight software.
+License tied to a CPU ID
+The following 3-step process shows how to manually set up a counted license that is tied to a CPU
+ID .
+Step 1: Start License Server Managers
+Start the FlexNet license server managers ( lmgrd and agileesofd ) on the computer to which the
+license is tied as follows:
+1. Open the MS-DOS command prompt and change directory to the following path: C:\Program
+Files\Keysight\EEsof_License_Tools\bin.
+2. Specify the full path and location of the license file and the license log file, respectively, by typing the
+following command:
+lmgrd.exe -c <license file path> -l <license log file path>
+where,
+<license file path> specifies one or more full path-names to the license file(s).
+<license log file path> is the full path-name to the debug log file.
+39
+
+=== PAGE 40 ===
+
+Licensing (For Administrators)
+The spaces in path-names requires double quotes a
+Example
+lmgrd.exe -c "C:\Program
+Files\Keysight\EEsof_License_Tools\licenses\l
+\Users\Public\my_server_log.txt"
+Step 2: Create Windows Service
+To automate the restart of the license server mangers u
+Service as follows:
+You must have Administrator Privileges to configure
+Local System account.
+1. Run the lmtools.exe from C:\Program Files\Keysight\E
+window is displayed.
+2. In the Service/License File tab, select the Configuratio
+3. Click the Config Servicestab and enter the following d
+a. Service Name: Type the service name (for example
+b. Path to the lmgrd.exe file: Click Browse and
+license server (for example, C:\Program Files\Keysi
+c. Path to the license file: Click Browse and specify th
+example, C:\Program Files\Keysight\EEsof_License
+
+around the path-names.
+license.lic" -l "C:
+upon PC reboot, configure a Windows
+e a Windows Service. The service will run under the
+EEsof_License_Tools\bin. The lmtools utility
+on using Services option.
+details:
+e, EEsof EDA License Server ).
+d specify the path to the lmgrd.exe file on the
+ight\EEsof_License_Tools\bin\lmgrd.exe).
+he path to the license file on license server (for
+e_Tools\licenses\license.lic ).
+40
+
+=== PAGE 41 ===
+
+Licensing (For Administrators)
+If you have multiple license files for serving multiple Keysight EEsof products, you should include
+them all.
+d. Path to the debug log file: Click Browse and specify the path to the debug log file on license server
+(for example, C:\Users\Public\my_server_log.txt).
+4. Select the Use Services option.
+5. Select the Start Server at Power Up option.
+6. Click Save Service. The following figure shows the configured services in the lmtools window.
+7. To verify that the service is created, click the Start/Stop/Reread tab and observe that your service
+shows up in the FlexNet license services installed on this computer list.
+To verify if the license managers are running, click again on the Config Services tab later and click View
+Log. A log window appears that confirms whether lmgrd and agileesofd are up and running.
+Step 3: Set Product Environment Variable
+Set the environment variable <PRODUCT>_LICENSE_FILE to point the machine running the license
+server managers (lmgrd and agileesofd).
+1. Select Start > Control Panel > System. Click Advanced system settings. The System Properties dialog
+box appears and the Advanced tab is selected by default).
+2. Click Environment Variables.
+3. In the Environment Variables dialog box, add the product specific environment variable
+<PRODUCT>_LICENSE_FILE as a new system variable. For example, for SystemVue, it is
+SYSTEMVUE_LICENSE_FILE, for ADS, it is ADS_LICENSE_FILE, for EMPro, it is EMPRO_LICENSE_FILE
+and so on. For details, refer to License Environment Variables section.
+4. In the New System Variable dialog box, set the value to be the same as what you specified in the --c
+argument when you start lmgrd . To use the example illustrated in Step 1, second bullet, this value
+would be C:\Program Files\Keysight\EEsof_License_Tools\licenses\license.lic.
+41
+
+=== PAGE 42 ===
+
+Licensing (For Administrators)
+5. Repeat 3 and 4 for each Keysight EEsof product you have installed on your computer.
+License tied to USB Dongle
+The following 4-step process shows how to manually set up a counted license that is tied to a USB
+Dongle.
+You can move a dongle between systems after performing this license setup process for each computer
+you intend to run Keysight EEsof product(s) using the dongle license(s). If multiple dongles are swapped
+from one computer to another, be sure to include all the licenses associated with those dongles during
+the setup process.
+Step 1: Attach Dongle
+Make sure that the dongle is securely attached to the USB port of your computer. Some systems
+may require up-to a few minutes to detect the dongle, therefore, make sure to keep sufficient time
+before the next step.
+Step 2: Install USB Dongle Drivers
+The USB Dongle drivers ( FlexNet ID Dongle Device Drivers ) need to be installed once on each
+computer that is intended to run Keysight EEsof product(s) with dongle license(s). The supported
+USB dongle is Wibu Key (aka FLEXid 10) dongle.
+The USB dongle drivers can be found under the license installation tree. To install the drivers, run
+the Setup64.exe from C:\Program
+Files\Keysight\EEsof_License_Tools\bin\FLEXID10_Windows_v6_30_x64.
+If you currently do not have a Wibu Key dongle, contact Keysight EEsof Business Support.
+Step 3: Start License Server Manager and Create Windows Service
+Follow the steps 1 and 2 described in the License tied to CPU ID section.
+Step 4: Set Product Environment Variable
+Follow the step 3 described in the License tied to CPU ID section.
+42
+
+=== PAGE 43 ===
+
+Licensing (For Administrators)
+Setting Up Licenses on Linux
+This section describes how to set up a node-locked license or a floating (network) license on Linux.
+Both node-locked and floating licenses require license server to get installed and started. For a node-
+locked license, license server and the client machine are the same machine (that is, your local machine).
+For a floating license, these can be separate machines.
+Node-locked License
+Floating (Network) License
+43
+
+=== PAGE 44 ===
+
+Licensing (For Administrators)
+Setting Up Floating License on Linux
+Setting up a floating license on Linux is a two-step process where both server-side setup and
+client-side setup are needed.
+Step1: License Server Setup
+Repeat the following steps for each license server you have.
+For licenses tied to a CPU ID , follow the steps 1 and 2 described in Setting Up Node-Locked License
+on Linux section.
+For licenses tied to a USB Dongle, follow steps 1 through 3 described in Setting Up Node-Locked
+License on Linux section.
+Step 2: Client Setup
+Once the license is configured successfully for all the license servers, configure each client
+computer to point to the network license server. License Setup Wizard offers the easiest method to
+get this done Alternatively, you can perform this step manually by following step 3 of Setting Up
+Node-Locked License on Linux section. Make sure to specify the network license server in the
+format of port@host.domain .
+Example
+27001@myServer.myCompany.com
+In case a license server is down or is running slow, it is recommended to remove it from the server list
+using the License Setup Wizard to avoid any performance degradation caused by the dead/slow
+servers.
+.
+44
+
+=== PAGE 45 ===
+
+Licensing (For Administrators)
+Setting Up Node-Locked License on Linux
+This section describes how to set up a node-locked license on Linux.
+The given instructions assume that you have already installed Keysight EEsof Licensing Tools either
+in the EEsof product installation tree, or in a dedicated location. The former happens automatically
+when you install Keysight EEsof product on the Linux platform; the latter happens when you
+separately download the Keysight EEsof Licensing Tools from Keysight download website and
+install the package to a dedicated location. In the former case, you can find all the licensing tools
+and binaries under <PRODUCT_INSTALL_DIR>/Licensing/<license tools version>/linux_x86_[32|
+64]/bin directory. In the latter case, you can find all the licensing tools and binaries in the
+<LIC_INSTALL_DIR>/bin directory. For convenience, <LIC_PATH> is used in the rest of this chapter
+to represent the directory where the licensing libraries and executables are located.
+Make sure to save the license file on the same machine where you install the Keysight software.
+License tied to CPU ID
+The following 3-step process shows how to manually set up a counted license that is tied to a CPU
+ID .
+Step 1: Start License Server Managers ( lmgrd and agileesofd )
+Start the license server managers ( lmgrd and agileesofd ) on the machine to which the license is
+tied as follows:
+1. Change the directory to the <LIC_PATH>
+2. Run the following command to start lmgrd :
+./lmgrd -c <license file path> -l <license log file path>
+where,
+<license file path> specifies one or more full path-names to the license file(s).
+<license log file path> is the full path-name to the debug log file.
+Step 2: Automate FlexNet License Server Startup
+To automate the License Server managers’ startup upon system reboot, add something similar to
+the following sample script in the system boot services directory or /etc/rc.d/init.d .
+#!/bin/sh
+#
+# Sample FlexNet startup script for restarting EEsof License Server
+#
+### BEGIN INIT INFO
+45
+
+=== PAGE 46 ===
+
+Licensing (For Administrators)
+# Provides: eesof license server
+# Required-Start: $network
+# Required-Stop:
+# Default-Start: 3 4 5
+# Default-Stop:
+# Description: Start EEsof License Server
+### END INIT INFO
+PATH=/bin:/usr/bin
+export PATH
+#
+# Under the following example licensing invoking line, change /opt/ADS to the path of
+your license installation directory
+#
+su licadmin -c "/opt/ADS/Licensing/2013.01/linux_x86_64/lmgrd -c /opt/ADS/Licenses/
+license.lic -l /opt/ADS/Licenses/ads_server_log.txt"
+echo "Starting Keysight EEsof FlexNet license daemon......"
+sleep 5
+All the references to /opt/ADS/… shown above should be replaced with the actual path of <LIC_PATH>.
+Once you implement your version of the FlexNet startup script using the above sample, follow the
+steps below to complete the automation:
+1. Change to the system boot services directory: /etc/rc.d/init.d
+2. Create a startup script in the system boot services directory: EEsof_lmgrd_restart
+3. Insert your FlexNet startup script into this script.
+4. Set the permissions for this script, as shown:
+chmod 755 EEsof_lmgrd_restart
+chown root EEsof_lmgrd_restart
+chgrp sys EEsof_lmgrd_restart
+5. For license servers, run the command: /sbin/chkconfig --add EEsof_lmgrd_restart
+Follow the steps below for RHEL 7 and Suse 12:
+1. Perform Step 1 to 4 from above.
+2. Create a system service (EEsof_lmgrd.service) file with below entries in the system boot services
+directory: /etc/systemd/system/EEsof_lmgrd.service
+[nit]
+Description=EESOF License Service
+After= multi-user.target
+[Service]
+Type=simple
+ExecStart= /etc/rc.d/init.d/EEsof_lmgrd_restart.sh
+TimeoutStartSec=0
+46
+
+=== PAGE 47 ===
+
+Licensing (For Administrators)
+[Install]
+WantedBy=default.target
+3. Execute the systemctl enable EEsof_lmgrd.service command from the terminal.
+The license server will be auto started at RHEL 7 and Suse 12 as soon as the system is restarted.
+Step 3: Set Product Environment Variable
+Set the product specific environment variable <PRODUCT>_LICENSE_FILE to point to the machine
+running the license server managers ( lmgrd and agileesofd ). For example, for ADS, it is
+ADS_LICENSE_FILE , for GoldenGate, it is GOLDENGATE_LICENSE_FILE and so on. For details, refer
+to License Environment Variables section.
+This environment variable can be set in the user login startup file such as .cshrc (for C shell) or
+.profile (for Bourne shell) in the $HOME directory. Alternatively, these variables can be set using
+command-line as well.
+csh, tcsh, cshrc command for setting <PRODUCT>_LICENSE_FILE
+setenv <PRODUCT>_LICENSE_FILE <license file pathname>
+Example Product=ADS
+setenv ADS_LICENSE_FILE $HOME/Keysight/Licenses/license.lic
+ksh, bash command for setting <PRODUCT>_LICENSE_FILE
+export <PRODUCT>_LICENSE_FILE=<license file pathname>
+Example Product=GoldenGate
+export GOLDENGATE_LICENSE_FILE=$HOME/Keysight/Licenses/license.lic
+Repeat this step for each Keysight EEsof product you have installed on your Linux computer.
+To use multiple Keysight EEsof Products at the same time, setup the license by merging license files for
+each product and starting up the License Server Managers as described in step 1.
+License tied to USB Dongle
+For the Linux platform, the following 4-step process shows how to manually set up a counted
+license tied to a USB dongle.
+You can move a dongle between systems after performing this license setup process for each computer
+you intend to run Keysight EEsof product(s) using the dongle license(s). If multiple dongles are swapped
+from one computer to another, make sure to include all the licenses associated with those dongles
+during the setup process.
+47
+
+=== PAGE 48 ===
+
+Licensing (For Administrators)
+Step 1: Attach Dongle
+Make sure that the dongle is securely attached to th
+may require up-to a few minutes to detect the dong
+before the next step.
+You can move a dongle between systems by pla
+and moving the USB dongle from one system to
+use.
+Step 2: Install USB Dongle Drivers
+The USB Dongle drivers need to be installed once on
+Keysight EEsof product(s) with dongle license(s). By
+with the product installation files. They are available
+the installation image.
+To install these drivers on your local machine, follow
+the table below:
+1. Disconnect the USB dongle from your local machin
+2. Change the directory to <untar installation image>
+3. Use the Red Hat Package Manager (RPM) to instal
+Wibu dongle driver, execute the following comman
+rpm -i WkRt-Lin-6.32.1504-500.x86_64.
+The following table shows all available dongle driv
+Operating System Device Manufacturer
+Red Hat® Linux 64-bit Wibu Systems AG
+SUSE® Linux 64-bit Wibu Systems AG
+4. Connect the USB dongle again to your local machi
+5. Open command prompt, change directory to <LIC_
+FlexNet ID of the USB dongle is correct.
+lmutil lmhostid -flexid
+Step 3: Start License Server Manager and Automate
+Follow the steps 1 and 2 described in License tied to
+
+he USB port of your computer. Some systems
+gle, therefore, make sure to keep sufficient time
+acing a copy of its associated license file on each system
+o another. Each system must have the license(s) setup for
+n each computer that is intended to run
+y default, the USB dongle drivers are bundled
+e in the dongle_sup directory once you untar
+w these steps with the appropriate drivers from
+ne.
+>/ dongle_sup .
+ll the drivers. For example, to install 64-bit Flex-10
+nd:
+4.rpm
+vers being packaged in the installation image.
+FLEXID Driver Installation File
+10 WkRt-
+Lin-6.32.1504-500.x86_64.rpm
+10 WkRt-
+Lin-6.32.1504-500.x86_64.rpm
+ine.
+_PATH>, and type these commands to check if the
+e License Server Manager Restart
+o CPU ID section.
+48
+
+=== PAGE 49 ===
+
+Step 4: Set Product Environment Variable
+Follow the step 3 described in License tied to CPU ID section.
+49
+
+Licensing (For Administrators)
+
+=== PAGE 50 ===
+
+Licensing (For Administrators)
+Licensing Tools
+Keysight EEsof Licensing comes with several tools to help you manage EEsof licenses:
+License Manager
+Product Selector
+License Setup Wizard (Refer to Product GUI for more deatils on License Setup Wizard.)
+50
+
+=== PAGE 51 ===
+
+Licensing (For Administrators)
+License Manager
+The License Manager has been introduced in all the Product releases starting October 2012. It is a
+one-stop shop for all licensing tools.
+Figure: License Manager (sample window)
+It provides an interface to:
+Configure Licenses, such as add or replace a license file, add or replace a network license server,
+request for additional licenses, and change the default product startup license.
+Show Environment Variables related to licensing. Your computer host name, IP address, FlexNet
+version are some of the examples.
+Identify all the license features found in your license setup. Codeword version, number of features
+used, expiration date are presented as well.
+List all the license servers set up in your configuration.
+Provide information about bundles and elements that are available or in use. You can sort the usage by
+the codewords or by Users.
+Describe what capabilities are enabled by each license in your licensing pool.
+Perform a real-time and systematic license setup trouble-shooting and produce a detail report on the
+health of the configuration.
+Retrieve your Keysight Support ID to sign in to out technical support website for technical assistance.
+The License Manager can be accessed from the Product Main Window as follows:
+Tools > License Manager.
+51
+
+=== PAGE 52 ===
+
+Licensing (For Administrators)
+Product Selector
+The Product Selector displays a list of licenses that can be used to start an Keysight EEsof software.
+The Product Selector dialog box only appears if multiple licenses are available to start and Keysight
+EEsof software. It does not appear if there is only one license present, or if you have already
+preselected a startup license previously and that license is available. You can select a license from
+the list, as illustrated.
+Figure: Product=SystemVue Product Selector for Example
+Using Product Selector
+You can use Product Selector to perform the following tasks:
+View License Description and Part Number
+Check License Availability
+Select Product License
+Change Default Startup License
+View License Description and Part Number
+The Product Selector window displays all the licenses that can start the software of interest like
+ADS.
+52
+
+=== PAGE 53 ===
+
+Licensing (For Administrators)
+Check License Availability
+To check if the selected license is available on the server, click Show Availability. The availability of
+each license is displayed with the following convention:
+denotes that the license is available for use, while shows that the license is unavailable.
+Unavailable licenses cannot be selected.
+To view the details of the available license, select the license and click Show Details. The bottom
+pane appears and displays the following information: number of licenses, licenses used, license
+version, and license expiry date, .., and so on.
+Figure: Product=SystemVue Product Selector for Example
+Select Product License
+You can select an available license in Product Selector to start the software. Only one license can
+be selected at a given time.
+You can assign pre-selected license as a default choice for future sessions. This license is used
+automatically whenever a new session invoked. To pre-select a startup license, select the pre-
+selected license and check Always try to start with this selection. Once checked, in subsequent
+sessions, software startup will automatically attempt to check out the pre-selected license without
+displaying Product Selector. If the pre-selected license is denied and more than one license are
+available to start the session, then the Product Selector dialog box will be displayed once again.
+53
+
+=== PAGE 54 ===
+
+Licensing (For Administrators)
+Change Default Startup License
+You can change the default startup license by using the License Manager. Launch the License
+Manager tool and select Change the default product license. Upon which the Product Selector is
+displayed. Either uncheck the Always try to start with this selection option to reset the default to
+None, or simply select another license as the new default.
+54
+
+=== PAGE 55 ===
+
+Advanced Licensing Configuration
+This section provides information on various advanc
+Accessing Licenses through a Firewall
+Creating Options File
+License Environment Variables
+Multiple Server Configurations
+Remote and Distributed Simulation Licenses
+55
+
+Licensing (For Administrators)
+n Options
+ced licensing configuration options:
+
+=== PAGE 56 ===
+
+Licensing (For Administrators)
+Accessing Licenses through a Firewall
+You can access (checkout) FlexNet licenses through
+agreement. To enable license checkout, configure yo
+through the TCP ports used by the license manager
+agileesofd ).
+Step 1. Specify TCP Port Numbers
+Specify a TCP port number for lmgrd on the SERVER
+Be sure to stop and restart the license servers after
+Example
+Step 2. Configure Firewall
+Configure your firewall (or router) to allow TCP comm
+in Step 1.
+Step 3. Set Environment Variable
+At the client-side, set the <PRODUCT>_LICENSE_FIL
+assigned to the license server, as shown:
+<PRODUCT>_LICENSE_FILE=27000@myserver.myD
+After you set the environment variable, clients outsid
+from your server.
+Some clients may timeout before they can conn
+Windows. The default timeout period is 0.1 seco
+FlexNet environment variable FLEXLM_TIME
+License Administrator Guide for details
+
+h a firewall (or router) as per your license
+our firewall to allow TCP/IP communication
+daemon ( lmgrd ) or vendor daemon (
+R line and for agileesofd on the VENDOR lines.
+you modify the port numbers.
+munication through the TCP ports you specified
+LE environment variable to the port number
+Domain
+de of the firewall will be able to access licenses
+nect to a license server through a firewall setup on
+ond. If you need a longer timeout period, you can modify
+EOUT to a larger value. Refer to FlexNet Publisher’s
+56
+
+=== PAGE 57 ===
+
+Licensing (For Administrators)
+Creating Options File
+An Options file allows administrators to control the following licensing parameters of FlexNet:
+Retricts and/or reserves the use of features based on user, hostname, or display name.
+Controls the level of information logged about license usage.
+You can create an Options file using any text editor.
+Ideally, you should keep this file in the same directory as your license file.
+For details on how to create an Options file, refer to the FlexNet Publisher’s License Administration
+Guide.
+57
+
+=== PAGE 58 ===
+
+Licensing (For Administrators)
+License Environment Variables
+This section describes the environment variables spec
+most two locations are used to resolve these environm
+1. System Environment for the user
+2. Unified License Configuration Location:
+Operating System Key Name
+Windows XP/7 HKEY_CUR
+Configurati
+Unix $HOME/.ee
+Variable Name Description
+<PRODUCT>_LICENSE_FILE Specifies the list of lic
+requested by a given
+Each Keysight EEsof s
+purpose:
+ADS_LICENSE
+ICCAP_LICENS
+EMPRO_LICEN
+GENESYS_LIC
+SYSTEMVUE_
+GOLDENGATE
+AMA_LICENSE
+MBP_LICENSE
+MQA_LICENSE
+WAFERPRO_L
+It is automatic
+path must not
+special charac
+colon( : ) on
+These are use
+
+cific to Keysight EEsof licensing scheme. At
+ment variables, and in the order shown below:
+RRENT_USER\Software\Keysight\EEsof License
+ion
+esoflic
+cense files/servers to search when a license is
+Keysight EEsof Software.
+software has a dedicated variable to serve this
+E_FILE
+SE_FILE
+NSE_FILE
+CENSE_FILE
+_LICENSE_FILE
+E_LICENSE_FILE
+E_FILE
+E_FILE
+E_FILE
+LICENSE_FILE
+cally set by the License Setup Wizard. The license file
+t contain any
+cters like | , @ and semicolon( ; ) on Window or a
+Linux.
+ed as separator characters.
+It is recommended to use the License Manager to
+set the <PRODUCT>_LICENSE_FILE
+variable. If the <PRODUCT>_LICENSE_FILE
+variable is set to a new license file (or if the
+contents of a license file are changed), then the
+license server managers (lmgrd and agileeosfd)
+must be restarted for the change to take effect.
+This will be done automatically by the License
+Manager. If the license server managers are not
+restarted, then the EEsof software may not be
+able to checkout a license. For information on
+starting the license server managers, refer
+to Setting Up Licenses on Windows or Setting Up
+Licenses on Linux.
+58
+
+=== PAGE 59 ===
+
+Licensing (For Administrators)
+Variable Name Description
+EESOF_INSTALL_SKIP_LICSET This environmental variable gives the CAD administrators the ability to turn
+UP off
+the License Setup Wizard invocation at the end of Keysight EEsof product
+installation process.
+Set this variable to on or 1 to turn off the wizard invocation.
+<PRODUCT>_PRODSEL_PREVIOU Product Selector automatically records the name of the license selected
+S to start the software session in this variable. This variable can be used in
+conjunction with <PRODUCT>_PRODSEL_AUTOSTART variable to
+pre-select a license as the
+default startup license; when the pre-selected license is available at the
+startup of the next
+software session, the Product Selector dialog box does not get displayed.
+Each Keysight EEsof software has a dedicated variable to serve this
+purpose:
+ADS_PRODSEL_PREVIOUS
+ICCAP_PRODSEL_PREVIOUS
+EMPRO_PRODSEL_PREVIOUS
+GENESYS_PRODSEL_PREVIOUS
+SYSTEMVUE_PRODSEL_PREVIOUS
+GOLDENGATE_PRODSEL_PREVIOUS
+AMA_PRODSEL_PREVIOUS
+MBP_PRODSEL_PREVIOUS
+MQA_PRODSEL_PREVIOUS
+WAFERPRO_PRODSEL_PREVIOUS
+<PRODUCT>_PRODSEL_AUTOSTA It automatically records the state of the check-box "Always try to start with
+RT this selection.
+It is set to TRUE when check-box is checked. This variable can be used in
+conjunction
+with <PRODUCT>_PRODSEL_PREVIOUS variable to pre-select a
+license as the
+default startup license. When this variable is set to a value other than 0
+or FALSE ,
+the value recorded in <PRODUCT>_PRODSEL_PREVIOUS is used
+automatically when a new software
+session is started. In case, where there is only one license in the licensing
+pool qualified to
+start the new session, this variable has no effect;
+in all the other cases, if no <PRODUCT>_PRODSEL_PREVIOUS is
+specified or if the new session cannot be started
+with the specified license, the Production Selector dialog will be displayed.
+Each Keysight EEsof software has a dedicated variable to serve this
+purpose:
+ADS_PRODSEL_AUTOSTART
+ICCAP_PRODSEL_AUTOSTART
+EMPRO_PRODSEL_AUTOSTART
+GENESYS_PRODSEL_AUTOSTART
+SYSTEMVUE_PRODSEL_AUTOSTART
+GOLDENGATE_PRODSEL_AUTOSTART
+AMA_PRODSEL_AUTOSTART
+MBP_PRODSEL_AUTOSTART
+MQA_PRODSEL_AUTOSTART
+WAFERPRO_PRODSEL_AUTOSTART
+59
+
+=== PAGE 60 ===
+
+Licensing (For Administrators)
+Variable Name Description
+AGILEESOFD_DEBUG_MODE Turns on the debu
+anything other th
+startup, you need
+to take effect.
+Alternatively, Ven
+aglmutil without h
+instruction below
+1. Find t
+directo
+License
+"Enviro
+recorde
+"HPEESO
+2. cd <pa
+3. aglmut
+4. ads_sc
+5. -vdebu
+The se
+the fil
+"AGILEE
+found i
+License
+HPEESOF_DEBUG_MODE Controls the clien
+turns on the clien
+Debug messages
+set.
+This value should
+interest.
+AGLM_DEBUG_LOG Sets the name of
+This should be us
+variable.
+AGLMERR Suppresses licens
+variable is a list o
+contents of the lic
+message is not di
+license expiration
+startup time every
+about to expire, in
+
+ug mode in vendor daemon when this variable is set to
+han 0, no or off. Since this variable is only read at server
+d to stop and restart the license server to allow this setting
+ndor daemon debugging can also be turned on/off using
+having to stop and restart the license server. Follow the
+w:
+the licensing tools installation
+ory. One method is to invoke the
+e Manager tool, select the
+onment" tab, look for the path
+ed in the environment variable
+OF_LIC_DIR".
+athname recorded in HPEESOF_LIC_DIR>
+til –c @myServer.myDomain <cr>
+chematic <cr>
+ug on <cr>
+erver debug log will be recorded into
+le denoted by the environment variable
+ESOFD_SERVER_LOGFILE" that can also be
+in the "Environment" tab of the
+e Manager tool.
+nt-side licensing debug mode. Any value other than OFF
+nt-level debugging.
+are written to stderr unless AGLM_DEBUG_LOG is
+d be set before you start the Keysight EEsof software of
+the client-side licensing debug log file.
+sed in conjunction with HPEESOF_DEBUG_MODE
+sing related error and warning messages. The value of this
+of keywords. When any of the keywords appear in the
+censing message, that message is suppressed i.e. that
+isplayed. For example, if a user wants to suppress the
+n warning message that gets displayed at the software
+yday during the first 30-day period before the license is
+nclude the keyword “expiring” as a value in this variable.
+60
+
+=== PAGE 61 ===
+
+Multiple Server Configurations
+Keysight EEsof licensing scheme supports all the popular server configu
+FlexNet. This includes the redundant servers as well as the multiple ser
+Publisher’s License Administration Guide for details.
+61
+
+Licensing (For Administrators)
+urations supported by
+rvers. Refer to the FlexNet
+
+=== PAGE 62 ===
+
+Licensing (For Administrators)
+Remote and Distributed Simulation Licenses
+Keysight EEsof supports remote and distributed simulations for Circuit and Momentum Simulators.
+Remote simulation requires a floating license in the licensing pool; the distributed simulations,
+usually run remotely, requires special distributed licenses.
+Remote Simulation Licenses
+Where supported by the product, a floating simulation license is used to run a single simulation on
+a remote machine.
+For more details on Remote Simulations for:
+ADS Circuit Remote Simulation, see Circuit Remote Simulation
+ADS Momentum Remote Simulation, see Using the Job Manager
+GG Circuit Remote Simulation, see Remote Simulation
+Distributed Simulation Licenses
+Distributed simulation allows you to run multiple simulation jobs in parallel usually on multiple
+machines remotely. Simulation Manager is used to launch distributed simulations for Transient,
+Convolution, S-Parameters and Channel Simulators along with Batch Simulators in ADS and circuit
+Simulators in GoldenGate (GG). Job Manager is used to run distributed simulations for Momentum
+in ADS and GG.
+Following types of Distributed Simulation licenses are offered:
+Distributed Computing N-pack Simulation License
+Quad-pack Simulation License (GoldenGate Only)
+Distributed Computing N-pack Simulation License
+Where supported, Keysight EEsof offers distributed N-pack (or Turbo) licenses to support a cost-
+effective method to accelerate simulation sweeps, where N is the number of concurrent parallel
+jobs supported (typically, N = 8). This is a reserve license up-front model in which simulation
+controller reserves simulation licenses up-front and only launches as many simulation jobs as
+granted.
+A distributed N-pack license supports N parallel simulation jobs which perform a sweep of multiple
+parameters on a single circuit (like frequency, power, temperature, a variable, Monte Carlo, or
+corner analysis).
+62
+
+=== PAGE 63 ===
+
+Licensing (For Administrators)
+A standard simulation license is checked out first before an N-pack distributed license. The
+standard license acts as a controller. If you require more than N sweep points to be simulated,
+multiple count of N-pack licenses can be stacked to accommodate greater parallelism.
+A distributed computing N-pack license is limited to the same simulation type (that is, Momentum,
+Transient, and so on).
+A distributed computing N-pack license feature bits are bundled together and cannot be shared
+between users or different circuits.
+In case of a Distributed Computing N-pack Simulation license, the N-pack license is checked out at
+the initiation of a distributed simulation (if available) and is released only once the sweep jobs are
+complete. As jobs are completed the license is still reserved to complete additional jobs, if needed
+on the existing sweep. This guarantees that the sweep is complete and also guarantees a
+reasonable rate of job acceleration. For example, you have only one count of 8-pack distributed
+license in the licensing pool and you want to distribute the sweep to 12 jobs. In this case, 8 jobs will
+start in parallel and as each job finishes, the remaining jobs (4) will start automatically using the
+same 8-pack license.
+In case, when no N-pack license is available, Momentum uses the standard license obtained and
+run simulations using all the sweeps are completed sequentially. On the other hand, in case of
+transient, convolution and channel simulator, multiple jobs are launched as per request and each
+job pulls the standard simulation license.
+For more details on distributed simulation on:
+ADS Circuit Distributed Simulation, see Distributed Simulation Using Simulation Manager
+ADS EM Simulation, see Using the Job Manager
+Quad-pack Simulation License (GoldenGate Only)
+Quad-pack Simulation Licenses support 4 simultaneous simulation jobs of multiple types (transient,
+harmonic balance, circuit envelope tied to the license) which can be used to sweep multiple
+parameters of one or more circuits. The Quad-pack Simulation licenses do not require standard
+simulation licenses to be pulled first. This is a first-come, first serve licensing model, with all jobs
+launched at the same time having equal opportunity to have the licenses granted.
+In contrast to Distributed Computing N-pack Simulation license, when a user requests for, say, 20
+jobs, but only two counts of the quad-pack licenses are available. In that case, all 20 jobs are
+launched at once, but only 8 are granted with the quad-pack licenses and able to perform the
+simulations; the other 12 jobs wait until quad-pack license is released by the first 8 jobs, and each
+will start its simulation once granted with the license.
+For more details on Distributed Simulations in case of GG, refer to GG Circuit Distributed Simulation
+63
+
+=== PAGE 64 ===
+
+Licensing (For Administrators)
+License Retry
+By default, the license auto-retry time is set at one hour for all simulations that are launched
+remotely. Within that period, the previously failed license checkout request is attempted again in
+every 2 minutes, until either the license is granted, or the retry period times out.
+
+n
+64
+
+=== PAGE 65 ===
+
+Licensing FAQs
+Licensing - FAQs
+The following table lists the Frequently Asked Questi
+Question Answer
+Where can I find different licensing Windows: C:\Pro
+tools such as lmgrd , lmutil , Files\Keysight
+etc.? Linux (64-bit): <PRO
+tools version>
+On the Linux platform
+location outside of an
+can find all the licens
+directory.
+How can I determine the agileesofd There are two version
+version before installing or version and the EEso
+running any EEsof product?
+To determine the Fle
+type: “agilees
+To determine the EEs
+1. Right click on
+Properties.
+2. Select the De
+The Product
+To determine the EEs
+type: “strings
+The F
+the v
+agile
+supp
+upda
+may
+note
+agile
+Where should I copy my license file? On the Windows plat
+file to C:\Progra
+Can I change the port number in my You will not normally
+license file? Licenses provided by
+number of 27009 on
+number, then you ne
+65
+
+Licensing (For Administrators)
+ions (FAQs) on Licensing.
+ogram
+t\EEsof_License_Tools\bin folder
+ODUCT_INSTALL_DIR>/Licensing/<license
+>/linux_x86_64/bin directory
+m, if you choose to install licensing tools to a dedicated
+ny Keysight EEsof product installation tree, then you
+sing tools and binaries in <LIC_INSTALL_DIR>
+ns associated with agileesofd: the Flexera Publisher
+of licensing tools version.
+exera version,
+sofd -v”
+sof licensing tools version on Windows
+n agileesofd.exe in Windows Explorer and select
+etail tab in the Properties.
+version is the EEsof licensing tools version.
+sof licensing tools version on Linux:
+s agileesofd | grep EESOF”
+Flexera version of lmgrd must be greater or equal than
+version of agileesofd and the Flexera version of
+eesofd must be greater or equal to the Flexera version
+ported for the product (such as, ADS). agileesofd is not
+ated for every release of EEsof licensing tools, so it
+have a lower version number. Refer to product release
+es for details on minimum version of
+eesofd required to run the product.
+tform, Keysight recommends you to copy your license
+am Files\Keysight\License\EEsof folder.
+y need to modify your local node-locked license file.
+y the Keysight Software Manager (KSM) will have a port
+the SERVER line. If you do want to use a different port
+eed to modify them all of your EEsof license files for a
+
+=== PAGE 66 ===
+
+Licensing (For Administrators)
+Question Answer
+given license server to have the same port number in order for the license
+server to recognize them and start properly. The License Setup Wizard
+(beginning with Licensing version 2017.01) will check that all of the license
+files use the same port (or all have no port). Refer to Accessing Licenses
+through a Firewall section in the Advanced Licensing Configuration chapter.
+Can I access the license activity log For the local node-locked license set up by the License Setup Wizard, you
+file? can find out the location of the license activity log by either of the following
+method:
+1. Start the License Setup Wizard and click Details. Click on the link
+shown for the license log file opens the log file in a text editor.
+2. Start the License Manager, and go to the “Environment” tab. The
+entry for AGILEESOFD_SERVER_LOGFILE contains the
+clickable link that opens up the log file in a text editor.
+For the floating license set up on the network license server, consult
+your CAD Admin to find out where the log file is located.
+I am using valid Combo License but I The license checkout denials could be recorded in the license activity log
+still get "License Denial" message. when you use a combo license file that contains both version 2.8 and 3.0
+licenses. You can ignore these messages as they don't have any impact on
+using the product.
+Why do I need to set environment <PRODUCT>_LICENSE_FILE is used by each Keysight EEsof product
+variable to identify the licensing configuration for that product. Refer to License
+<PRODUCT>_LICENSE_FILE ? Environment Variables section in the Advanced Licensing Configuration
+chapter for more details.
+Why am I getting "License Denial" Occasionally you may receive a license denial message unexpectedly. When
+message? that happens, you should check to see if there are any "run-away" EEsof
+processes that need to be killed, because those run-away EEsof processes
+might be holding on to the license.
+Why should I turn off FLEXLM_TIMEOUT is used by Flexera when connecting to a license server.
+FLEXLM_TIMEOUT? The default value of 3 seconds (3000000 microseconds) is sufficient to allow
+remote connections with typical latencies. It generally will not need to be
+changed. This value is also used when scanning for port when no port is
+specified in the license file or in the server string. If you
+know that there are no latency issues with a server you can reduce the value
+of FLEXLM_TIMEOUT.Then minimum possible value is 200 milliseconds
+(200000 microseconds). Keysight recommends using a port number and not
+changing FLEXLM_TIMEOUT.
+Do I need to explicitly specify TCP/IP Not specifying the TCP/IP port for the license server during license setup
+port? may lead to checkout delays, unexpected behavior, and/or license checkout
+failure on the Windows platform. Therefore, it is highly recommended to
+always explicitly specify the TCP/IP port associated with each license server.
+What license version do I need? Check Product Release Notes first. Refer to License Version to Software
+Release Compatibility Table for details on license version to use.
+66
+
+=== PAGE 67 ===
+
+Question Answer
+What do I do to clean my existing When you suspe
+license setup? quick way to cle
+recreation of the
+following:
+Start the
+Choose "
+followed
+Choose "
+followed
+If your ex
+lmtoo
+Window
+License
+How do I determine if I am using the To determine th
+latest agileesofd vendor daemon?
+The start
+)EESOF
+Compare
+03/30/2
+12:1
+----
+-
+12:1
+12:1
+12:1
+deb
+12:1
+accu
+12:1
+orga
+12:1
+logg
+12:1
+admi
+12:1
+read
+12:1
+to c
+12:1
+crit
+12:1
+usag
+12:1
+run
+12:1
+trac
+67
+
+Licensing (For Administrators)
+ect that your license setup is outdated or behaving weirdly, a
+ean up your existing license setup and force a reload and
+e license servers and service on the Windows platform is the
+e License Setup Wizard.
+"I want to add or replace my license file" and click "Clear"
+d by "Next" to clear your previous license file setup.
+"I want to add or replace my license server" and click "Clear"
+d by "Next" to clear your previous license server setup.
+xisting license setup is still not cleaned up completely, run
+ols located in the <LIC_PATH> folder to clear the
+ws Service related to Keysight EEsof licensing: "EEsof EDA
+Server", which can be found in the "Start/Stop/Reread" tab.
+he agileesofd vendor daemon, you must check the following:
+tup information for the version string ( agileesofd
+F 2016.05 (XXX) , shown in the example below.
+e the date stamp with what is installed. It must be dated
+2016.
+15:27 (lmgrd)
+-------------------------------------------
+15:27 (lmgrd) Please Note:
+15:27 (lmgrd)
+15:27 (lmgrd) This log is intended for
+bug purposes only.
+15:27 (lmgrd) In order to capture
+urate license
+15:27 (lmgrd) usage data into an
+anized repository,
+15:27 (lmgrd) please enable report
+ging. Use Flexera Software LLC's
+15:27 (lmgrd) software license
+inistration solution,
+15:27 (lmgrd) FlexNet Manager, to
+dily gain visibility
+15:27 (lmgrd) into license usage data and
+create
+15:27 (lmgrd) insightful reports on
+tical information like
+15:27 (lmgrd) license availability and
+ge. FlexNet Manager
+15:27 (lmgrd) can be fully automated to
+these reports on
+15:27 (lmgrd) schedule and can be used to
+ck license
+
+=== PAGE 68 ===
+
+Licensing (For Administrators)
+Question Answer
+12:15
+heter
+12:15
+inclu
+12:15
+Softw
+12:15
+more
+12:15
+of Fl
+12:15
+12:15
+12:15
+-----
+-
+12:15
+12:15
+12:15
+Time:
+Time
+12:15
+12:15
+is en
+12:15
+12:15
+buil
+(IBM
+12:15
+Flex
+12:15
+www.f
+12:15
+\User
+\User
+12:15
+12:15
+=====
+=
+12:15
+12:15
+Mon N
+12:15
+12:15
+v11.1
+(ipv
+12:15
+12:15
+Info
+
+5:27 (lmgrd) servers and usage across a
+rogeneous
+5:27 (lmgrd) network of servers
+uding Windows NT, Linux
+5:27 (lmgrd) and UNIX. Contact Flexera
+ware LLC at
+5:27 (lmgrd) www.flexerasoftware.com for
+e details on how to
+5:27 (lmgrd) obtain an evaluation copy
+lexNet Manager
+5:27 (lmgrd) for your enterprise.
+5:27 (lmgrd)
+5:27 (lmgrd)
+------------------------------------------
+5:27 (lmgrd)
+5:27 (lmgrd)
+5:27 (lmgrd) Server's System Date and
+: Mon Nov 12 2018 12:15:27 India Standard
+5:27 (lmgrd) pid 2060
+5:27 (lmgrd) SLOG: Summary LOG statistics
+nabled.
+5:27 (lmgrd) Done rereading
+5:27 (lmgrd) FlexNet Licensing (v11.13.1.4
+ld 179569 x64_n6) started on SGH612TFY0
+PC) (11/12/2018)
+5:27 (lmgrd) Copyright (c) 1988-2015
+xera Software LLC. All Rights Reserved.
+5:27 (lmgrd) World Wide Web: http://
+flexerasoftware.com
+5:27 (lmgrd) License file(s): C:
+rs\Public\mom_dds.lic C:
+rs\Public\rfpro_otherbundles.lic
+5:27 (lmgrd) lmgrd tcp-port 27009
+5:27 (lmgrd) (@lmgrd-SLOG@)
+==========================================
+5:27 (lmgrd) (@lmgrd-SLOG@) === LMGRD ===
+5:27 (lmgrd) (@lmgrd-SLOG@) Start-Date:
+Nov 12 2018 12:15:27 India Standard Time
+5:27 (lmgrd) (@lmgrd-SLOG@) PID: 2060
+5:27 (lmgrd) (@lmgrd-SLOG@) LMGRD Version:
+13.1.4 build 179569 x64_n6 ( build 179569
+v6))
+5:27 (lmgrd) (@lmgrd-SLOG@)
+5:27 (lmgrd) (@lmgrd-SLOG@) === Network
+===
+68
+
+=== PAGE 69 ===
+
+Question Answer
+12:15
+port:
+12:15
+12:15
+Info
+12:15
+servi
+12:15
+Confi
+12:15
+optio
+\User
+\User
+\User
+12:15
+file(
+\User
+12:15
+=====
+=
+12:15
+12:15
+12:15
+12:15
+stati
+12:15
+CKPT1
+12:15
+12:15
+CKPT2
+12:15
+SGH61
+b_lay
+12:15
+e_dds
+12:15
+e_ads
+12:15
+12:15
+56277
+12:15
+3/30/
+69
+
+Licensing (For Administrators)
+5:27 (lmgrd) (@lmgrd-SLOG@) Listening
+: 27009
+5:27 (lmgrd) (@lmgrd-SLOG@)
+5:27 (lmgrd) (@lmgrd-SLOG@) === Startup
+===
+5:27 (lmgrd) (@lmgrd-SLOG@) Is LS run as a
+ice: No
+5:27 (lmgrd) (@lmgrd-SLOG@) Server
+iguration: Single Server
+5:27 (lmgrd) (@lmgrd-SLOG@) Command-line
+ons used at LS startup: -c C:
+rs\Public\mom_dds.lic;C:
+rs\Public\rfpro_otherbundles.lic -l C:
+rs\Public\SGH612TFY0_server_log.txt
+5:27 (lmgrd) (@lmgrd-SLOG@) License
+(s) used: C:\Users\Public\mom_dds.lic C:
+rs\Public\rfpro_otherbundles.lic
+5:27 (lmgrd) (@lmgrd-SLOG@)
+==========================================
+5:27 (lmgrd) SLOG: FNPLS-INTERNAL-VL1-4096
+5:27 (lmgrd) Starting vendor daemons ...
+5:27 (lmgrd) Started agileesofd (pid 3428)
+5:27 (agileesofd) SLOG: Summary LOG
+istics is enabled.
+5:27 (agileesofd) SLOG: FNPLS-INTERNAL-
+1
+5:28 (agileesofd) SLOG: VM Status: 0
+5:28 (agileesofd) SLOG: FNPLS-INTERNAL-
+2
+5:28 (agileesofd) Server started on
+12TFY0 for:
+yout_momentum
+5:28 (agileesofd) pjc_b_layout_momentum
+s b_hb_l_momentum_3dem
+5:28 (agileesofd) pjc_b_hb_l_momentum_3dem
+s_rfpro
+5:28 (agileesofd) EXTERNAL FILTERS are OFF
+5:28 (lmgrd) agileesofd using TCP-port
+7
+5:28 (agileesofd) EESOF 2016.05 (0
+/2016)
+
+=== PAGE 70 ===
+
+Licensing (For Administrators)
+Question Answer
+How do I Find Flex ID of Hardware You need thenod
+Key? from Keysight EE
+you place a call t
+Before yo
+directly fr
+If you hav
+already in
+following
+lmutil
+Start Too
+
+delockedID of your hardware security key to get licenses
+Esof. It might also be useful to access this information when
+to Technical Support. There are two ways to check this:
+ou install the hardware key on your PC, you can read the ID
+rom the key.
+ve installed the hardware key on your PC, and have also
+nstalled your licenses and the FLEXnet software, enter the
+g command to check the nodelocked ID:
+l lmhostid -flexid
+ols > License Manager and Select Environment Tab
+70
+
+=== PAGE 71 ===
+
+Licensing (For Administrators)
+Troubleshooting License Problems
+This section discusses a troubleshooting flow to diagnose license failures. The most important thing
+to understand is that licensing works with a server machine and client machine. A third party tool,
+FlexNet Publisher by Flexera software makes it possible. The server machine (that runs license
+server ) offers licenses held in a pool. The client machine (that runs the Keysight EEsof application)
+communicates with and requests licenses from the license server machine. It should be noted that
+the license server and the license client can be the same machine.
+License problems can be categorized into the following:
+One or more problems with the license server setup
+One or more problems with the license client setup
+A combination of first two types
+A communication problem between license server and license client
+Prerequisites
+FlexNet utilities, run from the command line, are a fundamental tool used in the license
+troubleshooting process. Further, many of the FlexNet utility commands make reference to the
+license server machine (and this is regardless if the license server is a local machine or remote one).
+Given this, to perform the troubleshooting process, one needs to know:
+Where to access the FlexNet utilities for command line use
+How to reference license server
+Product specific license settings
+Where to Access the FlexNet utilities for Command Line Use
+Windows
+1. Invoke License Manager from Keysight EEsof Software’s Main Windows’ Tools menu.
+2. Select the Environment tab.
+3. In the Environment tab, look for the variable, HPEESOF_LIC_DIR . Make note of this path (for
+example, C:\Program Files\Keysight\EEsof_License_Tools)
+4. Open up a command prompt window
+5. Change directories as follows:
+6. cd <Path from step 3>\bin
+Linux
+1. Assuming that you have installed 2012.xx version of an Keysight EEsof product onto
+<PRODUCT_INSTALL_DIR>, you can find FlexNet utilities under <PRODUCT_INSTALL_DIR>/Licensing/
+2012.08/linux_x86[32|64]/bin directory.
+2. Alternatively, if you have installed Keysight EEsof Licensing package onto a dedicated directory,
+<LIC_INSTALL_DIR>, you can find FlexNet utilities under <LIC_INSTALL_DIR>/bin directory.
+71
+
+=== PAGE 72 ===
+
+Licensing (For Administrators)
+How to Reference License Server
+For debugging use of FlexNet with Keysight EEsof Products, port@license-server-machine is
+typically used. This is a generic representation for the license server.
+Port is a TCP port number that is optionally assigned for the license server.
+License-server-name is the name of the license server machine. This can be a remote machine
+or local machine. However, it should be noted that this can also be the IP address of the machine.
+Examples
+@MyLocalPC
+27001@RemoteLicenseServer.myDomain
+@192.168.0.102
+Product specific license settings
+The steps that follow will reference <Product>_LICENSE_FILE . <Product>_LICENSE_FILE can
+be one of the following depending upon which Keysight EEsof product you are using:
+ADS_LICENSE_FILE
+EMPRO_LICENSE_FILE
+ICCAP_LICENSE_FILE
+GENESYS_LICENSE_FILE
+SYSTEMVUE_LICENSE_FILE
+GOLDENGATE_LICENSE_FILE
+MBP_LICENSE_FILE
+MQA_LICENSE_FILE
+AMA_LICENSE_FILE
+WAFERPRO_LICENSE_FILE
+Troubleshooting Flow and Process
+This section covers the suggested troubleshooting flow as follows:
+Step 1: Verify license server machine is running, FlexNet daemon versions, license server
+communications.
+Step 2: Verify client is able to access license server machine.
+Step 3: Verify pool and accessibility of available licenses.
+If your Keysight-EEsof application is unable to start, start with Step 1.
+If your Keysight-EEsof application is able to run but you have a license problem during
+application runtime, start with Step 3.
+72
+
+=== PAGE 73 ===
+
+Step 1: Verify license server machine is run
+server communications
+Run the following FlexNet lmutility:
+lmutil lmstat -c <port>@<license-se
+In the above, a status query is performed on licen
+of the license server machine). The following infor
+1. License file for server is located on the license s
+<License server machine>_server_license.lic..
+2. lmgrd is UP meaning that it is running.
+3. agileesofd is UP meaning that it is running
+4. Version number for both lmgrd and agilees
+As part of initial troubleshooting, you must ensure
+agileesofd are both UP , the version numbers for
+To use this troubleshooting flow, go through the l
+different subsequent conditions as guided.
+CONDITION 1: Running lmutil lmstat -c
+something as following:
+If the path to license file is not shown and informa
+one or more of the following possible problems m
+presented differently or license path is given with
+condition.
+73
+
+Licensing (For Administrators)
+nning, FlexNet daemon versions, license
+erver-machine>
+nse server 27001@apricot ( apricot is the name
+rmation is obtained:
+server machine at /hfs/d1/local/License_Server/
+g.
+sofd is v11.11 each.
+e that the path to license file is correct, lmgrd and
+lmgrd and agileesofd are both v11.11 for each.
+list of conditions in the given sequence. Jump to
+<port>@<license-server> displays
+ation about lmgrd and agileesofd is not given, then
+may exist. If the above message is not seen or
+h lmgrd and agileesofd being UP , move to the next
+
+=== PAGE 74 ===
+
+Licensing (For Administrators)
+1. USB dongle not plugged in: If license server us
+see if dongle is plugged in appropriately.
+2. USB dongle driver not installed: If license serve
+that the dongle driver is installed by running Fl
+flexid . If "missing dongle driver" is reported
+install it.
+3. Wrong License Server Name is used in comman
+server. Depending upon your DNS configuratio
+domain name (for example, @computername.
+license server machine (for example, @130.29
+machine name may be replaced with localho
+@localhost ).
+4. Network connectivity (Remote license servers):
+network. Not getting a ping respond could mea
+network or turned off.
+5. License server not running: There could be seve
+further, for Windows machine, it is advisable to
+run.
+a. Check process on the license server for pres
+follow the Install License Server instructions
+b. Examine license file and ensure CPU ID in th
+machine. Run the FlexNet command: lmutil
+CPU ID in the license file can be matched up
+6. Only one agileesofd process may be running at
+on the machine for presence of already running
+services (Windows or Linux) previously set up o
+on the machine to ensure that only one exists f
+a. Running on unsupported platform: License s
+systems for our products. Ensure that the lic
+be noted that Virtual machines (for example
+distributions other than Red Hat Enterprise
+Ubunto, Fedora).
+b. License Path problem:
+On Windows: Run License Setup Wizard
+being pointed to.
+On Linux: Check if license file specified in
+correct file is used in lmgrd command.
+c. FlexNet communications blocked: See spec
+communications.
+CONDITION 2: Running lmutil lmstat -c
+being UP , agileesofd being UP but does not
+versions are v11.11 .
+If lmgrd and agileesofd are reported UP wit
+The FlexNet lmgrd and agileesofd daemons
+lmgrd and agileesofd on the license server m
+www.keysight.com/find/eesof-flexnet-download
+
+ses a license file that is tied to a USB dongle, check to
+er uses a license file that is tied to a USB dongle, check
+lexNet command: lmutil lmhostid --
+d, follow the Dongle License Installation instruction to
+nd: Ensure that you have the correct name of the license
+on in place, it may be necessary to provide fully qualified
+.companydomainname.com ) or the IP Address of the
+9.167.44 ). If using a local license server, the local
+ost (for example, lmutil lmstat -c
+: Ping remote license server to ensure it is on the
+an the machine is physically disconnected from the
+eral causes for this. However, before investigating
+o restart the machine where License Setup Wizardwas
+sence of lmgrd and agileesofd . If any of them is missing,
+s to start the same.
+he installed license file matches with CPU ID of the
+l lmhostid to acquire the CPU ID of machine so that the
+p with the CPU ID of the machine.
+t a time on a license server machine. Check processes
+g instance of agileesofd . This could be due to multiple
+on the same machine. If this applies, explore the services
+for Keysight EEsof software.
+servers are supported on the supported operating
+cense server is on a supported operating system. It must
+e, VMWare, Windows virtual machine) and Linux
+Linux or Novell SuSE are not supported (for example,
+d: Verify if the wizard show that the correct license file is
+n lmgrd invocation been moved or deleted or the
+cial section on dealing with blocked FlexNet
+<port>@<license-server> reports lmgrd
+t report that both lmgrd and agileesofd
+th version v11.11 , move to the next condition.
+have to be upgraded to FlexNet v11.11 for both
+machine. The bits can be acquired at http://
+ds.
+74
+
+=== PAGE 75 ===
+
+Licensing (For Administrators)
+CONDITION 3: Running lmutil lmstat -c <port>@<license-server> reports lmgrd
+being UP , agileesofd being UP , lmgrd and agileesofd versions are v11.11 , but reports
+the wrong path and/or license file:
+1. Determine the correct location of the license file.
+2. On Windows: Re-run License Setup Wizard to re-configure for correct license file.
+On Linux: Stop and re-start license server with correct license file.
+Step 2: Verify client is able to access license server
+At this stage in the debugging process, the license server is presumed to be working correctly and
+focus is shifted to the client side. To remind again, both server and client can be the same machine.
+These are the items to check on the license client machine:
+1. License Path specified for the Keysight EEsof application
+2. Remote server only: Communications problem from client machine to remote server
+License Path specified for the Keysight EEsof application
+The Keysight EEsof software application obtains licenses from the license server machines that are
+specified in the license path. Each Keysight EEsof application has a dedicated variable for holding
+the license path information. This variable is written to the Windows registry on Windows or
+entered into one's environment on Linux. It takes on the format of <PRODUCT>_LICENSE_FILE .
+<PRODUCT>_LICENSE_FILE can be one of the following depending upon which product you are
+using:
+ADS_LICENSE_FILE
+EMPRO_LICENSE_FILE
+ICCAP_LICENSE_FILE
+GENESYS_LICENSE_FILE
+SYSTEMVUE_LICENSE_FILE
+GOLDENGATE_LICENSE_FILE
+MBP_LICENSE_FILE
+MQA_LICENSE_FILE
+AMA_LICENSE_FILE
+WAFERPRO_LICENSE_FILE
+On Windows
+1. Invoke License Manager from Keysight EEsof Software, Main Window > Tools menu.
+2. Select the Environment tab.
+3. In the Environment tab, look for the variable with the name resembling <PRODUCT>_LICENSE_FILE
+format.
+Verify if <PRODUCT>_LICENSE_FILE either points to the correct remote license server (for example,
+port@license-server-machine or @license-server-machine ), or the path is correct pointing
+to the correct local license file on the machine? If not, run License Setup Wizard to correct this.
+75
+
+=== PAGE 76 ===
+
+Licensing (For Administrators)
+<PRODUCT>_LICENSE_FILE is not explicit
+done for earlier versions of the software but shou
+interfere with License Setup Wizard.
+On Linux
+Find out what <PRODUCT>_LICENSE_FILE is set to by
+example.
+Verify if <PRODUCT>_LICENSE_FILE either points to
+port@license-server-machine or @license-ser
+to the correct local license file on the machine. On Lin
+variable may have been declared somewhere in the e
+as .adsrc, .eesofpvmprofile, or .flexlmrc.
+Communications problem from client machine to re
+This only needs to be checked if license server is a re
+previously run as described in the section Verify licen
+versions, license server communications.
+Run lmutil lmstat -c port@license-serv
+@license-server-machine . If the following output
+AND it has been verified that the remote license serv
+blocked: See special section on dealing with blocked
+Step 3: Verify pool and accessibility of availab
+In this stage of the troubleshooting flow, the license s
+lmgrd and agileesofd version v11.9 , and the Licens
+license denials are preventing the access to software
+following items are checked in this section:
+1. The pool of available licenses has the correct featur
+2. Multiple end user license server only: The pool of av
+someone else might have checked out a license tha
+3. Remote server only: License file does not have float
+
+tly defined in the Windows System Properties. This was
+uld not be done with the current version. Doing so will
+y echo $ADS_LICENSE_FILE command for
+o the correct remote license server (for example,
+rver-machine ), or the path is correct pointing
+nux, special care is needed because this
+environment startup files such
+emote server (Remote Server Only)
+emote machine or if lmutil lmstat was not
+nse server machine is running, FlexNet daemon
+ver-machine or lmutil lmstat -c
+t is seen,
+ver is running, then FlexNet communications are
+d FLEXnet communications.
+ble licenses
+server is presumed to be running with correct
+se path has been correctly set. However,
+e or access to features of the software. The
+res, license version number, expiration date.
+vailable licenses has licenses available (for example,
+at is needed).
+ting licenses.
+76
+
+=== PAGE 77 ===
+
+Licensing (For Administrators)
+The pool of available licenses has the correct features, license version number, expiration date
+This section checks the licenses in the license pool for correct features, correct license version
+number, and unexpired licenses. Wrong features, wrong license versions, and expired licenses can
+result in license denials.
+On Windows
+1. Invoke License Manager from Keysight EEsof Software Main Windows > Tools menu.
+2. Select the Licenses tab. Example below has Product=ADS.
+On Linux
+Execute FlexNet utility to get to this information:
+lmutil lmstat -c <port>@<license-server> -i
+77
+
+=== PAGE 78 ===
+
+Licensing (For Administrators)
+In the above platform illustrations (Windows, Linu
+27001@cinnamon.ind and 27001@trident.sc
+trident.scs are the name of the license server
+1. A listing of the features the license pool offers.
+2. All features are version 3.0 licenses.
+3. There are 200 licenses for each feature.
+4. Licenses expire on September 13, 2012 .
+5. Features are those belonging to agileesofd
+Given the above, the following items should be co
+1. a. Features - Do the features appearing agree w
+b. Version number- Ensure that the version nu
+correlates to its associated license version n
+Software Version
+2012 and 2 versions back
+2011 and 2 versions back
+2010 and 2 versions back
+For example, if you are trying to run ADS 201
+v2.9 codewords, a license denial will occur.
+c. Number of Licenses - Are the number of lice
+
+ux), a query is performed on license servers
+cs , respectively (where, cinnamon.ind and
+r machines). The following information is obtained:
+vendor daemon.
+onfirmed:
+with what you believe are the features you own?
+umber of software you are running or trying to run
+number:
+License Version
+3.0
+2.9
+2.8
+12.08 on your machine but point to a license server with
+enses 1 or greater for needed licenses?
+78
+
+=== PAGE 79 ===
+
+Licensing (For Administrators)
+d. License Expiration - Are the licenses current and not expired?
+Multiple end user license server only: The license pool has licenses available (for example,
+someone else has checked out a license that is needed)
+This section covers problems where licenses needed are in the license pool but are in use by other
+users. Skip this, if you are the only user of the license server.
+On Windows
+1. Invoke License Manager from Keysight EEsof Software Main Windows > Tools menu.
+2. Select the Usage tab. Example below has Product=ADS.
+On Linux
+Execute FlexNet utility to get to this information:
+lmutil lmstat -c <port>@<license-server> -a
+79
+
+=== PAGE 80 ===
+
+Licensing (For Administrators)
+In the above platform dependent illustrations (Windows
+server a query is performed on license servers 27001@c
+respectively (where, cinnamon.ind and trident.scs
+machines). The following information is obtained:
+1. A listing of the features in the pool.
+2. The users using the features.
+3. For each feature, the total number of licenses per featu
+Given the above, a determination should be made if the
+users.
+
+s, Linux), a query is performed on license
+cinnamon.ind and 27001@trident.scs ,
+s are the name of the license server
+ure versus how many licenses in use.
+e license that is needed is in use by other
+80
+
+=== PAGE 81 ===
+
+Remote server only: License server has one or m
+In some instances, the license server is working, t
+use (not in use by others), licenses version show c
+still cannot be checked out. This can be caused by
+file tied to the CPU ID of the machine intended to
+this, the following steps are performed:
+1. Perform procedure described in MULTIPLE END
+licenses has licenses available step to get a listi
+2. Alternatively, run the FlexNet Utility, lmutil
+name to be checked>
+In case of node-locked licenses, you will see in t
+the example above, it shows b_ads_inclusiv
+license file has been installed.
+FlexNet Communications Problems
+This section should not be consulted unless i
+remote, is running.
+81
+
+Licensing (For Administrators)
+more node-locked licenses
+the client setup is correct, licenses are available for
+correct version and are not expired, but a license
+y accidental installation of a node-locked license
+be the network (floating) license server. To verify
+USER LICENSE SERVER ONLY: The pool of available
+ing of licenses on server.
+il lmdiag -c @license-server <feature-
+the last line, "This license cannot be checked out". In
+ve can be checked out, inferring a correct network
+it has been ascertained that the license server, local or
+
+=== PAGE 82 ===
+
+Licensing (For Administrators)
+FlexNet communications can be blocked and/or in
+section addresses how to resolve these issues. Fle
+interference is most typically caused due to firewa
+is covered here. However, it can also be caused fr
+programs. Blockage/interference from those prog
+Since, firewall and antivirus software is a typical c
+should be investigated first. The quickest way to m
+firewall and antivirus software.
+Ensure that disabling any security software (
+that it does not cause harm to your system.
+is also recommended that you work with loc
+The test is performed by methodically running
+across different permutations of disabling firewall
+license path, lmgrd and agileesofd vendor da
+disablement. This is a positive test result. lmstat
+blockage:
+Below is an example test matrix. It is recommend
+Client Firewall Server Firewall
+Test 1 off on
+Test 2 on off
+Test 3 off off
+Test 4 off off
+
+nterfered with by third party programs. This
+exNet communication blockage and/or
+alls, and less often, with antivirus software, which
+rom VPN tunnel programs and/or other third party
+grams is beyond the scope of this.
+cause for FlexNet communication problems, this
+make this determination is to temporarily disable
+(for example, firewall, antivirus) is done in such a manner
+Keysight cannot be held responsible for the harm caused. It
+cal IT support professional.
+lmutil lmstat -c @license-server
+l and antivirus software. When lmstat reports
+aemons UP after a firewall or antivirus
+t result shown when no communications
+ded to start with Firewall disabling first.
+l Client Antivirus Server Antivirus
+on on
+on on
+on on
+off on
+82
+
+=== PAGE 83 ===
+
+Client Firewall Server Firewall
+Test 5 off off
+If both firewall and antivirus, on server and client mac
+words, all security software on license client and serve
+positive result, then some third party software might b
+professional to check the same.
+If after running the above tests, an interfering firewall
+must be made into these tools so that the FlexNet sof
+are covered here. However, due to the wide variation i
+use models, only generic instructions are provided.
+1. Edit the current license file on license server machin
+license manager daemon lmgrd and the agilees
+SERVER this_host B8AC6F80C09D 27005
+VENDOR agileesofd PORT=5346
+#
+INCREMENT b_hb_layout_momentum agileesofd
+VENDOR_STRING&hellip;..
+Stop and re-start license server so that these change
+2. Firewall and Antivirus exclusions:
+a. Firewall: Specify TCP port numbers 27005 and 53
+server and License client machines
+b. Firewall and/or Antivirus: Configure following exe
+C:\Program Files\Keysight\EEsof_License_Tools\b
+C:\Program Files\Keysight\EEsof_License_Files\b
+83
+
+Licensing (For Administrators)
+Client Antivirus Server Antivirus
+off off
+chines, are simultaneously disabled (in other
+er turned off) and lmstat does not give a
+be causing the issue. Request your IT
+and/or antivirus is determined; exceptions
+ftware functions properly. The steps to do this
+in firewall and antivirus user interfaces and
+ne. A port number should be added for both the
+sofd vendor daemon. These are shown below.
+d 2.9 31-mar-2013 1
+es can take effect.
+346 to be allowed through firewall for both License
+ecutables as exclusions:
+bin\agileesofd.exe
+bin\lmgrd.exe
+
+=== PAGE 84 ===
+
+Licensing (For Administrators)
+Glossary and Abbreviations
+The following table lists commonly used licensing terms and abbreviations in EEsof Licensing.
+Term Definition
+Keysight Software Manager (KSM) An interactive self-help license management system that allows you to
+redeem, transfer, request, and renew licenses.
+Feature A single capability that is used to construct an element or a bundle license
+(for example, ads_schematic, sim_linear, and so on).
+Elements An element includes one or more features. It is the lowest level of license
+sold. All the features therein are reserved when the element is checked
+out.
+Bundle A bundle includes all the features from the elements that make up the
+bundle. It is sold as a whole and all the features therein are reserved when
+the bundle is checked out.
+CPU ID CPU ID specifies the unique ID of a machine. It is also referred to as MAC
+address or the physical address or hostid of a computer system.
+Distributed Simulation A simulation divided into multiple jobs that runs concurrently on one or
+more computers.
+FlexNet FlexNet is the 3rd-party licensing technology Keysight EEsof licensing
+scheme is based on.
+FlexNet ID Dongle A license dongle is a serialized hardware key that can be attached to a
+USB port of a computer to limit or lock software access to whoever has the
+dongle attached to his/her system via the associated Keysight EEsof
+license file. A license dongle always has a unique ID called FlexNet ID.
+FlexNet ID Dongle Device Drivers FlexNet ID Dongle Device Drivers must be installed before the dongle
+device can serve as the locking device for license.
+Floating (Network) License A floating (network) license can be shared among multiple users across a
+network. It can be installed on a license server using a CPU ID or a dongle
+to fulfill the license requests from one or more client machines. License
+server and client machine are different machines. Floating license support
+is provided for single and multiple servers (including distributed product
+servers, peak servers, and redundant servers).
+84
+
+=== PAGE 85 ===
+
+Licensing (For Administrators)
+Term Definition
+Hot Swapping An automatic release of a pulled bundle or core/environment license and
+replace it with a different bundle type during run-time and check-out of
+another bundle license.
+Job Control A means to enforce a license count for a feature per each job invocation. A
+feature has job control if each invocation of it consumes one count of its
+associated license. Job control is used to limit the amount of concurrent
+usage of a feature within one count of its encompassing element or bundle
+consumption. Job controlled features include simulators and model sets.
+License File The Keysight EEsof licenses are stored in a file. The license files are locked
+to the license server using an identity obtained from the machine. This
+identity is the CPU ID.
+License Pool A license pool is a collection of purchased licenses.
+License Security Licenses are secured by a codeword tied to a CPU ID or USB Dongle.
+License Server Manager (lmgrd) lmgrd is one of the component in FlexNet technology. It is the license
+daemon process running on the license server system to police the license
+usage.
+License Setup Wizard License Setup Wizard offers a guided tour to assist the user to set up his/
+her license. It is the recommended method for the Windows users who use
+node-lock counted licenses locked to his/her PC or a dongle device.
+License Tools Includes License Manager, License Setup Wizard, and Product Selector.
+Load Sharing Facility (LSF) Load Sharing Facility (LSF) is a general-purpose, distributed queuing
+system. Instead of submitting jobs to specific host machines, you can
+submit them to a centralized queue manager. LSF distributes jobs to
+available hosts based on the current load conditions and the resource
+requirements of the application. It supports sequential and parallel
+applications running as interactive and batch jobs. LSF is a third party
+software tool by Platform Computing that makes distributed simulation
+possible. Sun Grid Engine, a different third party tool that functions similar
+to LSF, is also supported.
+Node-locked License Node-locking means that the application can be used on a specific host. It
+allows a single instance of an Keysight EEsof product to be used on a
+single computer with a single display. The user, license, and computer
+must be physically co-located.
+Primitives Primitives are obsolete, legacy product features. These are now contained
+within new elements, mainly for migration purpose.
+85
+
+=== PAGE 86 ===
+
+Licensing (For Administrators)
+Term Definition
+Remote Simulation A simulation launched on a remote computer.
+UDH UDH stands for User, Display, and Host. All Keysight EEsof licenses are
+tied to a single user, single display, and single host.
+Vendor Daemon (agileesofd) Keysight EEsof vendor daemon is called agileesofd. It partners with
+FlexNet license manager, lmgrd, to perform license usage policing for the
+license codewords issued by Keysight EEsof.
+86
+
+=== PAGE 87 ===
+
+
+
+This information is subject to
+change without notice.
+www.keysight.com
