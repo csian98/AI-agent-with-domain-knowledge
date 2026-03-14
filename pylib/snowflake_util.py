@@ -74,7 +74,7 @@ def insert_batch(con, source: str, chunk_ids: list[int], contents: list[str], em
  
     with con.cursor() as cur:
         cur.execute(f"""
-            INSERT INTO {table} (source, chunk_id, content, embedding) "
+            INSERT INTO {table} (source, chunk_id, content, embedding)
             {select_rows}
             """,
             params,
