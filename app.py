@@ -8,6 +8,8 @@ from fastapi import FastAPI, UploadFile, File
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
 
+from fastapi.middleware.cors import CORSMiddleware
+
 from pylib.qdrant_engine import QdrantEngine
 from pylib.llm_engine import OllamaLLMEngine, OpenAILLMEngine, AnthropicLLMEngine
 from pylib.pdf2txt import convert_new
@@ -15,6 +17,21 @@ from pylib.embedding import upload_new_pdfs
 from pylib.snowflake_util import *
 
 app = FastAPI()
+
+origins = [
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=False,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+
 qdrant = QdrantEngine(
     db_path="qdrant", collection_name="chunks", embedding_model="BAAI/bge-small-en-v1.5"
 )
@@ -76,7 +93,7 @@ async def upload(files: List[UploadFile] = File(...)):
     for file in files:
         content = await file.read()
         path = Path(f"./domain-knowledge/{file.filename}")
-        
+
         with open(path, "wb") as fp:
             fp.write(content)
 
@@ -86,7 +103,7 @@ async def upload(files: List[UploadFile] = File(...)):
     upload_new_pdfs(saved_txt, qdrant)
 
     return {"status": "success"}
-    
+
 
 # curl -X POST http://10.10.50.5:4444/api/generate -H "Content-Type: application/json" -d '{"model": "gpt-oss:20b", "embed": "qdrant","prompt": "hello"}'
 
