@@ -88,5 +88,23 @@ def convert_all():
             print(f"  Failed: {pdf.name} | {e}")
 
 
+def convert_new(saved_pdfs):
+    RAW_TXT.mkdir(parents=True, exist_ok=True)
+    saved_txt = []
+
+    for pdf in saved_pdfs:
+        out_path = RAW_TXT / (pdf.stem + ".txt")
+        saved_txt.append(out_path)
+
+        print(f"Converting: {pdf.name}")
+        try:
+            text = pdf_to_txt(pdf)
+            out_path.write_text(text, encoding="utf-8")
+            print(f"  Saved: {out_path}")
+        except Exception as e:
+            print(f"  Failed: {pdf.name} | {e}")
+
+    return saved_txt
+
 if __name__ == "__main__":
     convert_all()

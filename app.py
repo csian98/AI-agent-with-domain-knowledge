@@ -1,14 +1,17 @@
 import os, sys
+from pathlib import Path
+from typing import Any, List
 
 sys.path.append("pylib/")
 
-from fastapi import FastAPI
+from fastapi import FastAPI, UploadFile, File
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
 
 from pylib.qdrant_engine import QdrantEngine
 from pylib.llm_engine import OllamaLLMEngine, OpenAILLMEngine, AnthropicLLMEngine
-
+from pylib.pdf2txt import convert_new
+from pylib.embedding import upload_new_pdfs
 from pylib.snowflake_util import *
 
 app = FastAPI()
@@ -66,4 +69,25 @@ def generate(request: ChatRequest):
     return {"response": text}
 
 
+@app.post("/api/upload")
+async def upload(files: List[UploadFile] = File(...)):
+    saved_pdfs = []
+
+    for file in files:
+        content = await file.read()
+        path = Path(f"./domain-knowledge/{file.filename}")
+        
+        with open(path, "wb") as fp:
+            fp.write(content)
+
+        saved_pdfs.append(path)
+
+    saved_txt = convert_new(saved_pdfs)
+    upload_new_pdfs(saved_txt, qdrant)
+
+    return {"status": "success"}
+    
+
 # curl -X POST http://10.10.50.5:4444/api/generate -H "Content-Type: application/json" -d '{"model": "gpt-oss:20b", "embed": "qdrant","prompt": "hello"}'
+
+# curl -X POST http://127.0.0.1:4444/api/upload -F "files=@lab1-s26.pdf" -F "files=@lab2-s26.pdf" -F "files=@lab3-s26.pdf"

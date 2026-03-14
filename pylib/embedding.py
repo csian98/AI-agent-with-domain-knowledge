@@ -6,6 +6,8 @@ from pathlib import Path
 from langchain_text_splitters import CharacterTextSplitter
 import snowflake_util as sf
 
+from pylib.qdrant_engine import QdrantEngine
+
 RAW_TXT = Path("./raw-txt")
 
 CHUNK_SIZE    = 500
@@ -35,7 +37,7 @@ def make_chunks(text: str) -> list[str]:
     return [c for c in splitter.split_text(text) if len(c.strip()) > 20]
  
  
-def process_source(con, path: Path) -> None:
+def process_source(con, path: Path, qdrant = None) -> None:
     if not path.exists():
         print(f" {path} does not exsists")
         return
@@ -69,10 +71,29 @@ def process_source(con, path: Path) -> None:
             continue
  
         sf.insert_batch(con, path_name, batch_ids, batch_texts, embeddings)
+        if qdrant:
+            size = len(batch_ids)
+            for idx in range(size):
+                print(f"\r[{idx + 1}/{size}]Upload Qdrant...", end='')
+                qdrant.upload(path_name, batch_ids[idx], batch_texts[idx])
+            print(f"\n Finish Upload Qdrant...")
+        
         print("")
         time.sleep(0.5)
  
     print(f"  Done — {total} chunks stored for '{path_name}'.")
+
+def upload_new_pdfs(paths, qdrant: QdrantEngine):
+    con = sf.get_connection()
+    try:
+        # sf.ensure_table(con)
+        for path in paths:
+            process_source(con, path, qdrant)
+    finally:
+        con.close()
+
+    print("\nAll new sources processed")
+    
 
 def main():
     paths = Path(RAW_TXT).glob("*.txt")
@@ -86,7 +107,7 @@ def main():
         con.close()
  
     print("\nAll sources processed.")
- 
- 
+
+
 if __name__ == "__main__":
     main()

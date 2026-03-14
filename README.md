@@ -27,6 +27,10 @@
 
 ## About Project
 
+This project aims to develop a model for processing domain knowledge for AI agents.
+It supports real-time vector embedding storage and search--hosted both in the cloud (Snowflake) and
+locally (Qdrant)--for various data sources, including PDFs and web content; furthermore, it aims to
+provide users with more accurate responses by leveraging an AI agent RAG system.
 
 ## 🔐 License
 
