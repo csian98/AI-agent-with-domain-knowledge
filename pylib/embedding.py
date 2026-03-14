@@ -1,4 +1,3 @@
-import argparse
 import re
 import time
 from pathlib import Path
@@ -105,8 +104,6 @@ def main():
             process_source(con, path)
     finally:
         con.close()
- 
-    print("\nAll sources processed.")
 
 
 if __name__ == "__main__":

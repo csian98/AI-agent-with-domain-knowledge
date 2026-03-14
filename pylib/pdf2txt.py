@@ -15,7 +15,6 @@ TWO_COL_THRESHOLD = 0.15
 
 
 def _is_two_column(page: page) -> tuple[bool, float]:
-    """Return (is_two_col, split_x) for the page."""
     words = page.extract_words() # words = a list of dictionaries, containing attributes like "text", "x0", "top", "x1", "bottom", "width", and "height"
     if not words:
         return False, None
@@ -31,16 +30,13 @@ def _is_two_column(page: page) -> tuple[bool, float]:
     right_fraction = len(right) / len(words)
     if right_fraction < TWO_COL_THRESHOLD:
         return False, None
-
-    # Estimate the actual split by finding the most common left-edge of
-    # right-column words (rounded to the nearest 10 pts).
+    
     right_x0s = [w["x0"] for w in right]
     split_x = min(right_x0s) - 10        # a little padding
     return True, split_x
 
 
 def _extract_column(page, x_start: float, x_end: float) -> str:
-    """Extract text from a vertical slice of the page."""
     cropped = page.crop((x_start, 0, x_end, page.height))
     text = cropped.extract_text(x_tolerance=1, y_tolerance=3)
     return text or ""
