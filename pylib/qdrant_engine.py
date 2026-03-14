@@ -37,14 +37,21 @@ class QdrantEngine:
         self.client.delete_collection(self.collection_name)
         self._initialize()
 
-    def upload(self, text: str):
+    def close(self):
+        self.client.close()
+
+    def upload(self, chunk_id: int, source:str, text: str):
         vector = self._document_embedding(text)
         self.client.upsert(
             collection_name=self.collection_name,
             points=[PointStruct(
                 id=str(uuid.uuid4()),
                 vector=vector,
-                payload={"text": text})])
+                payload={
+                    "chunk_id": chunk_id,
+                    "source": source,
+                    "content": text,
+                })])
 
     def search(self, text: str, limit: int=5) -> List:
         vector = self._document_embedding(text)
@@ -53,4 +60,4 @@ class QdrantEngine:
             query=vector,
             limit=limit)
         
-        return [result.payload["text"] for result in results.points]
+        return [result.payload for result in results.points]

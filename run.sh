@@ -1,2 +1,2 @@
 #!/bin/zsh
-uvicorn app:app --reload --port 8000
+uv run -m uvicorn app:app --reload --port 4444
