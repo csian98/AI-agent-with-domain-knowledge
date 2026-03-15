@@ -1,0 +1,675 @@
+=== PAGE 1 ===
+
+Conformal e-predict
+confo
+Vladimir Vovk
+March
+Abs
+This note extends conformal e-p
+is observed confounding between t
+We consider both the case where
+where some dependence between ob
+The version of this note at htt
+updated most often.
+1 Introduction
+Conformal prediction in its basic form
+observations. In causal inference, inc
+we typically observe IID data but the
+ventions into stable stochastic mechan
+we apply conformal e-prediction to th
+finite-sample guarantees of validity. F
+that we take in this note goes beyon
+“randomness prediction” (as defined in
+The main question asked in this no
+inference. We are interested in the ca
+random variable Y with a confounder
+X := x, we would like to say somethi
+region for it. The available data comes
+two settings: in Sect. 2 we start from
+we allow X to be chosen by a non-triv
+X
+Figure 1: The main c
+6202
+raM
+11
+]TS.htam[
+1v43111.3062:viXra
+
+tion in the presence of
+ounding
+and Ruodu Wang
+13, 2026
+stract
+prediction to cover the case where there
+the random object X and its label Y .
+the observed data is IID and a case
+bservations is permitted.
+tp://alrw.net (Working Paper 46) is
+m is only applicable to IID sequences of
+cluding Pearl’s [1, Chap. 3] do calculus,
+en would like to predict results of inter-
+nisms generating the data. In this note
+his prediction problem in order to obtain
+Formally, however, the specific approach
+nd conformal prediction and is closer to
+n, e.g., [5]).
+ote is about the simplest setting of causal
+ausal effect of a random variable X on a
+Z. (See Figure 1.) Namely, after setting
+ing about Y , e.g., to output a prediction
+from an observational study. We consider
+m the standard IID one, while in Sect. 3
+vial strategy, as in [3] and [1, Sect. 3.6.1,
+Z
+Y
+causal graph of this note
+1
+
+=== PAGE 2 ===
+
+third extension]. Our mathematical r
+be known.
+For a positive integer N , we set [N
+2 The IID setting
+Let P be a positive probability mea
+variables (X, Y, Z); for simplicity we
+equipped with the discrete σ-algebra)
+X := x. For a given value y ∈ Y, defin
+(cid:88)
+p := P (Z = z)P
+y
+z∈Z
+The interpretation of (1) is that it is t
+causal model in which the arrow from
+and X has been set to x. We do not m
+Generate an IID random sample (
+P . For each y ∈ Y define the estimate
+F := (cid:88) |{n ∈ [N ] : Z n = z}| + 1 ×
+y N + 1
+z∈Z
+Lemma 1. For each y ∈ Y, it is true
+p
+E
+F
+We will prove Lemma 1 in Append
+Let Y be a random variable,
+N+1
+n ∈ [N ], with values in Y taking each
+(1). In causal inference we will use the
+testing using e-variables).
+Corollary 2. For each probability m
+defined by
+Q
+E :=
+is an e-variable (i.e., is nonnegative w
+Proof. The statement of the corollary
+E Q({Y N+1 }) = (cid:88) p E Q({y}) =
+F y F
+YN+1
+y∈Y
+y
+where the first equality follows from t
+
+results in Sect. 2 are simple and likely to
+N ] := {1, . . . , N }.
+asure on X × Y × Z generating random
+e assume that X × Y × Z is finite (and
+). Let us fix x ∈ X; we will set X to x,
+ne
+P (Y = y | X = x, Z = z). (1)
+the probability of Y = y in the mutilated
+m Z to X in Figure 1 has been removed
+mention x, which is fixed, in our notation.
+(X , Y , Z ), n ∈ [N ], of size N ≥ 1 from
+n n n
+e F of p by
+y y
+|{n ∈ [N ] : (X , Y , Z ) = (x, y, z)}| + 1
+n n n .
+|{n ∈ [N ] : (X , Z ) = (x, z)}| + 1
+n n
+(2)
+e that
+p
+y ≤ 1. (3)
+F
+y
+dix B.
+independent of the sample (X , Y , Z ),
+n n n
+value y ∈ Y with probability p given by
+y
+e following corollary (see [2] for hypothesis
+measure Q on Y, the random variable E
+Q({Y })
+N+1 (4)
+F
+YN+1
+with expectation at most 1).
+y follows from
+= (cid:88) Q({y})E p y ≤ (cid:88) Q({y}) = 1,
+F
+y
+y∈Y y∈Y
+the independence of Y .
+N+1
+2
+
+=== PAGE 3 ===
+
+Two particularly natural choices fo
+bility measure on Y and the probabilit
+The former choice treats all labels y ∈
+propriate when a specific label y∗ is m
+labels and we would like to exclude it
+such a label is “patient’s death”.
+Let us apply Corollary 2 to a sim
+generating the IID random sample (X
+according to the probability measure
+(conditionally on the random sample,
+distribution on Y in the mutilated cau
+Corollary 2 allows us to output e-p
+ternative Q (say, the uniform probabili
+α > 0 (typically a large number, such a
+e-prediction region by
+(cid:26)
+Γα := y ∈ Y
+The prediction regions Γα are nested a
+erty of validity for this predictor is
+(cid:90) ∞
+P (Y ∈/
+0
+in words, the probability of error at si
+at most 1 [4, the end of Appendix B].
+α, the probability of error at level α do
+This is a simpler property of validity; h
+by (6) is much stronger (and in fact is
+an e-variable).
+For a large N and small |Z|, the e
+optimal in some sense. Namely, the “o
+(cid:26)
+Γα := y ∈ Y
+if Q is a genuine alternative [2, Cha
+estimate of p , (5) is an approximatio
+y
+data.
+One special case mentioned earlier
+come y∗, which we would like to avoid
+we are justified in predicting Y ̸= y∗
+n
+lar, the probability that we will make
+probability is marginal, not conditiona
+Remark 1. For simplicity, in this no
+graph given in Figure 1. However, it is
+graph covered by the popular back-do
+Z becomes a set of variables in genera
+
+or Q in Corollary 2 are the uniform proba-
+ty measure concentrated on some y∗ ∈ Y.
+Y symmetrically. The latter choice is ap-
+much more important for us than the other
+confidently when possible; an example of
+mple problem of causal inference. After
+X , Y , Z ), n ∈ [N ], we generate Y
+n n n N+1
+assigning probability p to each y ∈ Y
+y
+of course). This is exactly the probability
+usal network obtained by setting X := x.
+prediction regions for Y . Given an al-
+n+1
+ity measure on Y) and a significance level
+as 10 or 100), we define the corresponding
+(cid:27)
+Q({y})
+Y : < α . (5)
+F
+y
+and grow as α increases. The main prop-
+/∈ Γα) dα ≤ 1; (6)
+ignificance level α > 0 should integrate to
+Since the probability of error decreases in
+oes not exceed 1/α by Markov’s inequality.
+however, the property of validity expressed
+s equivalent to the E defined by (4) being
+e-prediction regions (5) are close to being
+oracle” e-prediction regions are
+(cid:27)
+Q({y})
+Y : < α (7)
+p
+y
+ap. 3]. Since F as defined by (2) is an
+y
+on to (7) that can be computed from the
+r is where Q is concentrated on some out-
+d (“death of the patient”). For a large α,
+when we observe F ≤ 1/α. In particu-
+y∗
+an error does not exceed 1/α (where the
+al on F ≤ 1/α).
+y∗
+ote we concentrate on the simplest causal
+easy to extend our approach to any causal
+oor criterion: see [1, Theorem 3.3.2]. Now
+al, called an adjustment set.
+3
+
+=== PAGE 4 ===
+
+Z Z
+1 2
+past
+1
+X Y X Y
+1 1 2
+Figure 2: The re
+3 No stable stochastic
+As pointed out in [3, Sect. 1] (see al
+X , n ∈ [N ], are output by a stable s
+n
+context of causal inference, since we ar
+x. In this section we will still assume
+stochastic mechanisms but will drop t
+Our assumptions are represented g
+consists of a series of causal triangles
+triangles are arranged chronologically
+the triangles is not chronological, of
+represent the causal order). The bo
+for sets of variables. In this and nex
+interpretations of these boxes; in any
+the first n triangles.
+The most satisfying analogue of
+stands for all the variables X and Z ,
+i i
+interpretation of Figure 2. Under this
+has incoming arrows from all X and Z
+i
+Lemma 3. Lemma 1 continues to ho
+Figure 2.
+The proof of Lemma 3 is given in
+the Y -oblivious setting, and therefor
+satisfying the property of validity (6).
+4 Conclusion
+This note extends conformal e-predicti
+(And in Appendix B we will see that o
+|Z| conformal e-predictors.) In this sec
+directions of further research.
+In this note we only discussed ca
+of Figure 1, but in Remark 1 we not
+criterion is straightforward. There is n
+to other cases in which Pearl’s do ca
+identify the causal effect of X on Y . I
+
+Z
+N
+past 2 . . . past N−1
+Y X Y
+2 N N
+epeated causal graph
+c mechanism for X
+lso [1, Sect. 3.6.1]), the assumption that
+stochastic mechanism is unnatural in the
+re contemplating setting X to some value
+e that Z and Y are generated by stable
+n n
+this assumption for X .
+n
+graphically in Figure 2, which essentially
+s analogous to the one in Figure 1. The
+from left to right (while the order inside
+course; within each triangle the arrows
+oxes labelled past , n ∈ [N − 1], stand
+n
+xt sections we will consider two possible
+y case, past represents some variables in
+n
+Lemma 1 obtains when each box past
+n
+, i ∈ [n]. We will call this the Y -oblivious
+s interpretation, each X , n ∈ [N − 1],
+n+1
+Z , i ∈ [n].
+i
+old under the Y -oblivious interpretation of
+n Appendix B. Corollary 2 also holds in
+re, we still have e-prediction regions (5)
+.
+ion to a simple setting of causal inference.
+our causal e-predictor is a combination of
+ction we discuss some open questions and
+ausal inference in the simplest situation
+ticed that the extension to the back-door
+no doubt that our method can be extended
+alculus [1] and its variations allow us to
+In the case of the back-door criterion, our
+4
+
+=== PAGE 5 ===
+
+method works best for an adjustment s
+sizes of its elements’ domains (assumi
+Our proof of Lemma 3 does not wor
+where each past stands for all the pr
+n
+[n]. One possible approach in this situ
+[6, Chaps. 8 and 9].
+We assumed that each variable tak
+natural setting is regression, in which
+we are interested in prediction interva
+We have not discussed the optimali
+lation studies suggest that (3) will hol
+in (2) (e.g., replacing the entries of “
+the admissible constants in (3)? Impr
+provement in the e-prediction regions
+Sect. A.3.
+References
+[1] Judea Pearl. Causality: Models,
+Cambridge University Press, secon
+[2] Aaditya Ramdas and Ruodu Wang
+dations and Trends in Statistics, 1
+[3] Vladimir Vovk. Another semant
+Gammerman, editor, Computation
+chapter 7, pages 127–146. Wiley, N
+[4] Vladimir Vovk. Conformal e-pred
+111674, 2025. Special Issue on Con
+Uncertainty Quantification.
+[5] Vladimir Vovk. Universality of co
+of randomness. Proceedings of Ma
+ALT 2026.
+[6] Vladimir Vovk, Alexander Gamm
+Learning in a Random World. Spr
+A Connections with co
+This note is motivated by conformal
+case where we have only one random v
+two random variables X, Y . Both case
+and 3.
+
+set Z that has the smallest product of the
+ing Z is not unique).
+rk for the strong interpretation of Figure 2,
+revious variables, namely (X , Y , Z ), i ∈
+i i i
+uation is to use conformal test martingales
+kes only finitely many values, but another
+h Y is allowed to be any real number and
+als for it.
+ity of our finite-sample results. Our simu-
+ld even if we use less heavy regularization
+“ + 1” by “ + c” for c < 1). What are
+roving them will lead to an automatic im-
+s (5). A slack in (3) is also discussed in
+Reasoning, and Inference. Cambridge,
+nd edition, 2009.
+g. Hypothesis testing with e-values. Foun-
+1(1–2):1–390, 2025.
+tics for Pearl’s action calculus. In Alex
+nal Learning and Probabilistic Reasoning,
+New York, 1996.
+diction. Pattern Recognition, 166:article
+nformal Prediction and Distribution-Free
+onformal prediction under the assumption
+achine Learning Research, 313:1–18, 2026.
+merman, and Glenn Shafer. Algorithmic
+ringer, Cham, second edition, 2022.
+onformal prediction
+e-prediction, which is applicable to the
+variable Y and to the case where we have
+es will be used in the proofs of Lemmas 1
+5
+
+=== PAGE 6 ===
+
+A.1 Simple conformal e-pre
+First suppose that we have only one r
+probability measure on Y generating
+n ∈ [N +1], from P of size N +1. For a
+scores
+N + 1
+α :=
+i |{n ∈ [N + 1] : Y
+n
+[4, Sect. 2]. The standard property of
+(cid:18)
+N + 1
+E
+|{n ∈ [N + 1] : Y
+n
+i.e.,
+N + 1
+E
+|{n ∈ [N ] : Y =
+n
+It is instructive to see what Coroll
+formal e-prediction. We can rewrite (8
+P (Y
+E
+Pˆ(Y
+where
+|{n
+Pˆ(Y = y) :=
+(so that Pˆ is an estimate of P , altho
+rather than a probability measure in t
+y ∈ Y). The same argument as in the
+probability measure Q on Y,
+Q({Y
+E N
+Pˆ({Y
+N
+In particular, the conformal e-predictio
+α ≫ 1) is
+(cid:110)
+y ∈ Y : Q({y
+A.2 Conditional conformal
+Now suppose that we have a positive pr
+random variables X and Y . We gen
+n ∈ [N + 1], from it. For a given y ∈ Y
+|{n ∈ [N + 1] : X =
+α := n
+i |{n ∈ [N + 1] : (X , Y )
+n n
+
+ediction
+random variable Y . Let P be a positive
+Y . Generate an IID random sample Y ,
+n
+a fixed y ∈ Y, consider the nonconformity
+1 , i ∈ [N + 1]
+= y}| {Yi=y}
+validity for conformal e-prediction gives
+(cid:19)
+1 ≤ 1,
+= y}| {YN+1=y}
+n
+1
+≤ . (8)
+y}| + 1 P (Y = y)
+lary 2 becomes in the case of simple con-
+8) as
+= y)
+≤ 1,
+= y)
+∈ [N ] : Y = y}| + 1
+n
+N + 1
+ough it is a “super-probability measure”
+that Pˆ(Y = y) sum to more than 1 over
+e proof of Corollary 2 shows that, for any
+})
+N+1 ≤ 1.
+})
+N+1
+on set at significance level α > 0 (typically
+(cid:111)
+y})/Pˆ({y}) < α .
+e-prediction
+robability measure P on X×Y generating
+nerate an IID random sample (X , Y ),
+n n
+Y, we use the nonconformity scores
+= X }|
+i 1 , i ∈ [N + 1],
+= (X , y)}| {Yi=y}
+i
+6
+
+=== PAGE 7 ===
+
+in the object-conditional conformal e-p
+1 here). Now we have, for a fixed x ∈
+(cid:18)
+|{n ∈ [N + 1] : X = x}|
+E n
+|{n ∈ [N + 1] : (X , Y ) = (x, y)}
+n n
+i.e.,
+(cid:18)
+|{n ∈ [N ] : X = x}| + 1
+E n
+|{n ∈ [N ] : (X , Y ) = (x, y)}| +
+n n
+It is clear that for the validity of con
+to assume that the Y are IID conditio
+n
+arbitrary [6, Sect. 4.6.1].
+A.3 Slack in (3)
+This section continues discussion start
+(3) becomes transparent if we assume
+rewritten as
+F = (cid:88) |{n ∈ [N ] : Z n = z}| + 1 ×
+N + 1
+z∈Z
+= (cid:88) |{n ∈ [N ] : (Y n , Z n ) = (y, z
+N + 1
+z∈Z
+and so (3) is weaker than what can b
+which allows us to have 1 in place of t
+becomes
+(cid:18) (cid:30)
+|{n ∈ [
+E P (Y = y)
+and so is weaker than (8).
+B Some proofs
+Proof of Lemma 1. We start from noti
+mean over z ∈ Z of p /F taken wi
+y,z y,z
+p := P (Z = z)P (
+y,z
+and
+|{n ∈ [N ] : Z = z}| + 1 |{
+F := n ×
+y,z N + 1
+
+predictor [4, Sect. 4] (0/0 is interpreted as
+X,
+1
+}| {(XN+1,YN+1)=(x,y)}
+(cid:12) (cid:19)
+(cid:12)
+(cid:12) X 1 , . . . , X N+1 ≤ 1,
+(cid:12)
+(cid:12) (cid:19)
+(cid:12) 1
++ 1 (cid:12) (cid:12) X 1 , . . . , X N ≤ P (Y = y | X = x) .
+(9)
+nditional conformal e-prediction it suffices
+onal on X ; the distribution of X can be
+n n
+ted in Sect. 4. The presence of a slack in
+e that P (X = x) = 1. Then (2) can be
+|{n ∈ [N ] : (Y , Z ) = (y, z)}| + 1
+× n n
+|{n ∈ [N ] : Z = z}| + 1
+n
+z)}| + 1 |{n ∈ [N ] : Y = y}| + |Z|
+= n ,
+N + 1
+be obtained with conformal e-prediction,
+the |Z|. Namely, when P (X = x) = 1, (3)
+(cid:19)
+[N ] : Y = y}| + |Z|
+n ≤ 1
+N + 1
+icing that p /F is the weighted harmonic
+y y
+ith the weights p /p , where
+y,z y
+(Y = y | Z = z, X = x)
+{n ∈ [N ] : (X , Y , Z ) = (x, y, z)}| + 1
+n n n .
+|{n ∈ [N ] : (X , Z ) = (x, z)}| + 1
+n n
+7
+
+=== PAGE 8 ===
+
+(cid:80)
+This follows from the equalities F =
+y
+p 1
+y =
+(cid:80)
+F F /
+y z∈Z y,z
+Since a weighted harmonic mean does
+arithmetic mean, it suffices to prove E
+(cid:18)
+N + 1 |{
+E ×
+|{n ∈ [N ] : Z = z}| + 1 |{n ∈
+n
+≤
+P
+We can deduce (10) from the property
+N + 1
+E
+|{n ∈ [N ] : Z =
+n
+(see (8)) and its version
+|{n ∈ [N ] : (X , Z ) = (x, z)}| +
+E n n
+|{n ∈ [N ] : (X , Y , Z ) = (x, y, z)
+n n n
+that holds conditionally on X , . . . , X
+1
+be replaced by (X, Z)). Indeed, (10) c
+(12).
+Proof of Lemma 3. As in the previous
+(11), and we also have (12) conditiona
+from the remark at the end of Sect. A
+
+(cid:80) (cid:80)
+F and p = p , which imply
+z y,z y z y,z
+1
+= .
+/p
+y
+(cid:80) py,z Fy,z
+z∈Z py py,z
+s not exceed the corresponding weighted
+E(p /F ) ≤ 1 for a fixed z ∈ Z, i.e.,
+y,z y,z
+(cid:19)
+{n ∈ [N ] : (X , Z ) = (x, z)}| + 1
+n n
+∈ [N ] : (X , Y , Z ) = (x, y, z)}| + 1
+n n n
+1
+. (10)
+P (Z = z)P (Y = y | X = x, Z = z)
+y of validity for conformal e-prediction
+1
+≤ (11)
+= z}| + 1 P (Z = z)
++ 1 1
+≤ (12)
+)}| + 1 P (Y = y | X = x, Z = z)
+X , Z , . . . , Z (see (9), where X should
+N 1 N
+can be obtained by multiplying (11) and
+s proof, it suffices to prove (10). We have
+ally on (X , Z ), n ∈ [N ] (which follows
+n n
+A.2). Combining (11) and (12) gives (10).
+8
