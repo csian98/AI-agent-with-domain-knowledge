@@ -113,6 +113,47 @@ function App() {
     }
   };
 
+  const mutationFiles = useMutation({
+    mutationFn: async (files: File[]) => {
+      const formData = new FormData();
+      files.forEach((file) => formData.append("files", file));
+
+      const res = await fetch("http://127.0.0.1:4444/api/upload", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (!res.ok) {
+        const errText = await res.text();
+        throw new Error(`Backend error ${res.status}: ${errText}`);
+      }
+
+      return (await res.json()) as { status?: string };
+    },
+    onSuccess: (data) => {
+      if (data?.status === "success") {
+        dispatchChat({
+          type: "assistant message",
+          content:
+            "Your PDF(s) have been processed and are ready—ask me questions about them anytime.",
+          // set this to "current last index" so your reducer pushes a new assistant message
+          current_message_index: chatHistory.length - 1,
+        });
+      } else {
+        console.warn("Upload succeeded but unexpected response:", data);
+      }
+    },
+    onError: (error: Error) => {
+      console.error("Error processing PDF(s):", error);
+      // Optionally, notify the user about the error
+    },
+  });
+
+  const handleFilesSelected = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (!e.target.files) return;
+    mutationFiles.mutate(Array.from(e.target.files));
+  };
+
   return (
     <div className="flex flex-col text-base-content h-full bg-base-200 overscroll-none">
       <div className="flex w-full grow flex-col overflow-y-auto overscroll-none px-4 pt-4 pb-0">
@@ -159,8 +200,10 @@ function App() {
           <div className="join join-horizontal size-full grow-0 p-0">
             <input
               type="file"
+              accept=".pdf"
               className="file-input join-item h-full"
               multiple
+              onChange={handleFilesSelected}
             />
             <TextareaAutosize
               className="textarea join-item h-auto min-h-0 w-full resize-none"
