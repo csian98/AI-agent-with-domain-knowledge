@@ -1,0 +1,1155 @@
+=== PAGE 1 ===
+
+Low-Rank and Sparse Drift E
+L´evy-Driven Ornstein
+M. P
+March
+Ab
+We study high-dimensional Ornstein–Uhlen
+drift matrices that decompose into a low-rank
+factors together with a sparse network of dir
+under the localized, truncated contrast of Dexh
+that minimizes this contrast with a combine
+and sparse parts, respectively. Under a restri
+incoherence assumption, and regime-specific c
+mesh for the background driving L´evy process
+the Frobenius risk of the estimator. The bou
+d2∆2 from a stochastic term of order γ(∆ )
+n n
+low-rank-plus-sparse structure improves the d
+purely sparse estimators while retaining the sa
+the four L´evy regimes.
+Keywords: L´evy-driven Ornstein–Uhlenbeck p
+ℓ -penalization; oracle inequalities.
+1
+MSC (2020): Primary 62M05, 62J07; Seconda
+1 Introduction
+High-dimensional Ornstein–Uhlenbeck (OU) m
+framework for multivariate time series with bot
+applications ranging from finance to network m
+matrix A encodes both the global mean-reversi
+0
+between components. In many applications, A
+and sparsity structure, reflecting a small numbe
+network of direct pairwise interactions. This typ
+“low-rank plus sparse” literature for i.i.d. matrice
+that combine a nuclear norm and an ℓ -penalty.
+1
+The goal of this paper is to develop non-asy
+plus-sparse estimators in the L´evy-driven OU s
+dimension d and the structural parameters (r,
+starting point is the recent analysis of Dexheim
+(purely sparse drift) in L´evy-driven OU model
+L´evy process (BDLP). Their work provides reg
+6202
+raM
+21
+]RP.htam[
+1v85021.3062:viXra
+
+Estimation for High-Dimensional
+n–Uhlenbeck Processes
+Palaisti
+h 13, 2026
+bstract
+nbeck processes driven by L´evy noise and consider
+k plus sparse component, capturing a few latent
+rect interactions. For discrete-time observations
+heimer and Jeszka, we analyze a convex estimator
+ed nuclear-norm and ℓ -penalty on the low-rank
+1
+icted strong convexity condition, a rank–sparsity
+choices of truncation level, horizon, and sampling
+s, we derive a non-asymptotic oracle inequality for
+und separates a discretization bias term of order
+)T −1(r log d + s log d), thereby showing that the
+dependence on the ambient dimension relative to
+ame discretization and truncation behavior across
+processes; low-rank plus sparse drift; nuclear norm;
+ary 60G51, 62H12, 60H10.
+models driven by L´evy processes provide a flexible
+th continuous fluctuations and jumps, and arise in
+models and neuroscience. In such settings, the drift
+ion structure and the network of linear interactions
+A is believed to exhibit a simultaneous low-rank
+0
+er of dominant latent factors together with a sparse
+pe of structure has been extensively exploited in the
+es and multivariate regression via convex estimators
+.
+ymptotic Frobenius-risk bounds for such low-rank-
+setting, under high-dimensional scaling where the
+s) may grow with the effective sample size. Our
+mer and Jeszka, who study ℓ -penalized estimation
+1
+ls under four regimes for the background driving
+gime-specific choices of the truncation level η, the
+1
+
+=== PAGE 2 ===
+
+observation horizon T , and the discretization m
+and truncated contrast function, as well as con
+ing on their localization scheme and probabilis
+decomposable regularizers, we extend this fram
+More precisely, we consider the L´evy-driven
+dX = −A X d
+t 0 t
+where A ∈ Rd×d is the unknown drift matrix a
+0
+that X is observed at discrete times t = k∆ , k
+t k n
+and that the stationary invariant distribution is
+and Jeszka, we construct a localized and truncat
+at which X lies in a bounded ball B of radiu
+t
+k−1
+norm at most η. We then estimate A by decom
+0
+S sparse, and minimizing ℓ with a combined n
+0 n
+Our analysis relies on two main ingredients.
+rank-plus-sparse matrix estimation with a gene
+spirit of the framework developed by Negahban
+Wainwright for noisy matrix decomposition. Th
+lower bound for the loss, (ii) dual norm bound
+a restricted strong convexity (RSC) condition o
+The second ingredient is a specialization of the
+contrast, using the concentration and covarianc
+the four BDLP regimes (continuous, bounded-ju
+Under a rank–sparsity incoherence assumpt
+that the nuclear and ℓ norms are compatible o
+1
+calized contrast satisfies a cone-restricted RSC
+regime-dependent sample-complexity threshold.
+inequality for the Frobenius risk of the nuclear-p
+cretization/truncation bias from the stochastic
+yields, with high probability,
+∥Aˆ − A ∥2 ≲ d2∆2 +
+0 F n
+where γ(∆ ) captures the dependence on the
+n
+constants depend only on the ambient model pa
+bias incurred by observing the OU process on
+term with a low-rank-plus-sparse complexity fac
+Contributions. Our contributions can be sum
+• We introduce and analyze a nuclear-plus-ℓ
+dimensional L´evy-driven OU process, und
+The estimator is based on the localized an
+Jeszka, but extends their purely sparse fra
+• We develop an abstract oracle inequality
+decomposable penalties and a general con
+dual norm, and RSC conditions for the
+mixing assumptions. This yields non-asym
+effective complexity r log d + s log d.
+
+mesh ∆ that ensure concentration of a localized
+n
+ntrol of discretization and truncation errors. Build-
+stic bounds, and on abstract oracle inequalities for
+mework to the low-rank-plus-sparse case.
+n OU process
+dt + dZ , t > 0,
+t
+and Z is a d-dimensional L´evy process. We assume
+k = 0, . . . , n, over an observation horizon T = n∆ ,
+n
+used to initialize the process. Following Dexheimer
+ted quadratic contrast ℓ (A) by restricting to times
+√ n
+us of order d and increments ∆X have Euclidean
+k
+mposing it as A = L + S , with L low-rank and
+0 0 0 0
+nuclear and ℓ penalty on (L, S).
+1
+. The first is an abstract oracle inequality for low-
+eral convex loss and decomposable penalties, in the
+n and Wainwright and by Agarwal, Negahban and
+his abstract result applies under (i) a second-order
+ds for the gradient at the true parameter, and (iii)
+on an appropriate low-rank-plus-sparse error cone.
+ese conditions to the localized, truncated OU/L´evy
+ce bounds established by Dexheimer and Jeszka for
+ump, sub-Weibull, and polynomial-moment).
+tion on the decomposition A = L + S , we show
+0 0 0
+on the low-rank-plus-sparse cone, and that the lo-
+property with high probability when T exceeds a
+. Combining these ingredients, we obtain an oracle
+plus-ℓ -penalized estimator Aˆ that separates the dis-
+1
+term. In particular, our main result (Theorem 5.1)
+γ(∆ n ) (cid:0) (cid:1)
++ r log d + s log d ,
+T
+BDLP regime and the truncation level, and the
+arameters. The first term reflects the discretization
+the mesh ∆ , while the second term is a variance
+n
+ctor (r + s) up to logarithmic factors.
+mmarized as follows.
+ℓ -penalized estimator for the drift matrix of a high-
+1
+der a simultaneous low-rank and sparsity structure.
+nd truncated quadratic contrast of Dexheimer and
+amework to the low-rank-plus-sparse setting.
+y for low-rank-plus-sparse matrix estimation with
+nvex loss, and we verify the required second-order,
+OU/L´evy contrast under standard structural and
+mptotic Frobenius-risk bounds that scale with the
+2
+
+=== PAGE 3 ===
+
+• We specialize our main oracle inequality to
+and Jeszka (continuous, bounded jumps,
+In each regime we obtain explicit choices o
+truncation behavior as in the purely spars
+purely sparse dependence to the low-rank-
+These results show that the low-rank-plus-spa
+exploited in the L´evy-driven OU setting, yieldin
+compatible with the localization and truncation
+2 Model and Estimator
+We consider a d-dimensional L´evy-driven Ornst
+dX = −A X d
+t 0 t
+where A ∈ Rd×d is the (unknown) drift matrix
+0
+defined on a filtered probability space (Ω, F , (F
+of Z, where π denotes the invariant distribution
+Assumption A0 (OU/L´evy setup). We ass
+1. A ∈ M (Rd), i.e. all eigenvalues o
+0 +
+admits a unique stationary solution.
+2. The background driving L´evy proce
+measure admitting a p-th moment fo
+3. The initial distribution coincides with
+is strictly stationary.
+4. For a fixed bounded Borel set B ⊂ R
+covariance
+C (B)
+∞
+is positive definite.
+We observe X at equidistant times t = k
+k
+horizon T = n∆ . We denote increments by
+n
+∆X := X − X
+k t k t k
+Following [1], we localize and truncate the c
+√
+set with radius rad(B) of order d and let η >
+truncated contrast
+n
+1 (cid:88)
+ℓ (A) := 1
+n n {Xtk−1 ∈B, ∥∆X k ∥≤η}
+k=1
+This is the same localized/truncated loss used in
+equip it with a different regularizer.
+
+o the four BDLP regimes considered by Dexheimer
+sub-Weibull tails, and polynomial p-th moments).
+of (η, T, ∆ ) that retain the same discretization and
+n
+se case, while improving the stochastic term from a
+-plus-sparse dependence (r + s).
+arse structure of the drift coefficient can be fully
+ng improved high-dimensional rates while remaining
+techniques needed to handle jumps and heavy tails.
+tein–Uhlenbeck (OU) process
+dt + dZ , t > 0, (1)
+t
+x and Z = (Z ) is a d-dimensional L´evy process
+t t≥0
+F ) , P). We assume that X ∼ π is independent
+t t≥0 0
+n of X.
+sume:
+of A have strictly positive real parts, so that (1)
+0
+ess Z is a square-integrable martingale with L´evy
+or some p > 2.
+h the invariant distribution, X ∼ π, so that (X )
+0 t t≥0
+√
+Rd with radius of order d, the truncated invariant
+) := E [XX⊤1 ]
+π {X∈B}
+k∆ , k = 0, . . . , n, with ∆ > 0 and observation
+n n
+, k = 1, . . . , n.
+k−1
+contrast function. Let B ⊂ Rd be a bounded Borel
+> 0 be a truncation level. Define the localized and
+} (cid:13) (cid:13)∆X k + AX t k−1 ∆ n (cid:13) (cid:13) 2 2 , A ∈ Rd×d. (2)
+n [1] for sparse drift estimation, except that we will
+3
+
+=== PAGE 4 ===
+
+We focus on drift matrices of the form
+A =
+0
+where L is low-rank and S is sparse. As in th
+0 0
+require a structural identifiability condition th
+low-rank and too sparse.
+Definition 2.1 (Low-rank-plus-sparse drift clas
+define
+A(r, s) := (cid:8) A = L + S ∈ R
+0 0 0
+where ∥ · ∥ denotes the number of non-zero ent
+0
+Assumption A1 (Rank–sparsity incoheren
+and write U , V ∈ Rd×r with orthonormal
+0 0
+T := {U V ⊤ + U V ⊤ : U, V ∈ Rd×r },
+L 0 0
+with orthogonal complements T ⊥, T ⊥. W
+L S
+that
+∥P (M )∥ ≤ ξ
+T ⊥ ∗
+L
+and
+∥P (N )∥ ≤ ξ
+T ⊥ 1
+S
+with ξ + ξ < 1.
+L S
+Remark 2.2 (Relation to standard incoherence
+coherence condition closely aligned with those u
+imply that the tangent spaces T and T have su
+L S
+the decomposition A = L + S is identifiable.
+0 0 0
+incoherence guarantees that the nuclear and ℓ n
+1
+the decomposability arguments used in our ora
+(ξ , ξ ). Rather than re-deriving these geometri
+L S
+assumption and refer to the above references for
+We estimate A by decomposing it into a low
+0
+localized contrast with a nuclear-plus-ℓ penalty
+1
+(cid:110)
+(Lˆ, Sˆ) ∈ arg min ℓ (L
+n
+L,S∈Rd×d
+where ∥ · ∥ denotes the nuclear norm and ∥ · ∥
+∗ 1
+parameters. We then define the drift estimator
+Aˆ :=
+We equip Rd×d with the Frobenius norm ∥A
+n
+1 (cid:88)
+∥A∥2 := 1
+n,B,η n {Xtk−
+k=1
+
+L + S ,
+0 0
+he noisy matrix decomposition literature [2, 3], we
+hat rules out matrices that are simultaneously too
+ss). For integers r ∈ {0, . . . , d} and s ∈ {0, . . . , d2},
+Rd×d : rank(L ) ≤ r, ∥S ∥ ≤ s (cid:9) ,
+0 0 0
+tries.
+nce). Let L have SVD L = U Σ V ⊤ of rank r,
+0 0 0 0 0
+l columns. Define
+T := {M ∈ Rd×d : supp(M ) ⊆ supp(S )},
+S 0
+We assume there exist constants ξ , ξ ∈ (0, 1) such
+L S
+ξ ∥M ∥ for all M ∈ T , (3)
+L ∗ S
+ξ ∥N ∥ for all N ∈ T , (4)
+S 1 L
+conditions). Assumption A1 is a rank–sparsity in-
+used in [3, 2]. In particular, the bounds (3) and (4)
+ufficiently small overlap, so that T ∩ T = {0} and
+L S
+. Moreover, as shown in [2, 3], such rank–sparsity
+norms are compatible on the cone C in the sense that
+acle proof apply with constants depending only on
+ic facts here, we adopt A1 as a standing structural
+r detailed sufficient conditions and examples.
+w-rank and a sparse component and minimizing the
+y:
+(cid:111)
+L + S) + λ ∥L∥ + λ ∥S∥ , (5)
+∗ ∗ 1 1
+the entry-wise ℓ norm, and λ , λ > 0 are tuning
+1 1 ∗ 1
+= Lˆ + Sˆ.
+A∥ := ( (cid:80) A2 )1/2 and define the empirical norm
+F i,j ij
+∥AX ∥2.
+−1 ∈B, ∥∆X k ∥≤η} t k−1 2
+4
+
+=== PAGE 5 ===
+
+3 Abstract Decomposable-Pena
+In this section we state an abstract oracle ineq
+with a general convex loss and decomposable pe
+estimator will then be obtained as a direct corolla
+ℓ .
+n
+Let L (A) be a convex, differentiable loss fu
+n
+∇L (A), and consider the penalized estimator
+n
+(cid:110)
+(Lˆ, Sˆ) ∈ arg min L (L + S) + λ
+n
+L,S
+We assume that the true parameter A admi
+0
+and S sparse, and that the identifiability cond
+0
+complements T ⊥, T ⊥ be as in Assumption A1, a
+L S
+∆ := P (∆), ∆ := P (∆),
+L,T TL L,T ⊥ T
+L
+⊥
+Definition 3.1 (Low-rank-plus-sparse error con
+with (L , S ) is
+0 0
+(cid:110)
+C := ∆ ∈ Rd×d : ∥∆ ∥ ≤ 4
+L,T ⊥ ∗
+We next formulate the abstract assumptions
+Assumption B1 (Second-order lower boun
+nonnegative bias term Bias such that, for
+n
+L (A) − L (A ) − ⟨G (A
+n n 0 n 0
+Assumption B2 (Dual norm bounds). The
+the penalties:
+∥G (A )∥ ≤ λ /2
+n 0 op ∗
+Assumption B3 (Restricted strong convex
+∥∆∥2
+L
+Theorem 3.2 (Abstract low-rank-plus-sparse o
+1. A = L + S with rank(L ) ≤ r, ∥S ∥ ≤
+0 0 0 0 0 0
+2. Assumptions B1–B3 hold with seminorm ∥
+Let (Lˆ, Sˆ) be any solution of (6) and Aˆ = Lˆ + Sˆ
+such that
+∥Aˆ − A ∥2 ≤ C B
+0 F 1
+
+alty Framework
+quality for low-rank-plus-sparse matrix estimation
+enalties, in the spirit of [4, 2]. Our OU/L´evy drift
+ary by plugging in the localized/truncated contrast
+unction defined on Rd×d, with gradient G (A) :=
+n
+(cid:111)
+λ ∥L∥ + λ ∥S∥ , Aˆ = Lˆ + Sˆ. (6)
+∗ ∗ 1 1
+its a decomposition A = L + S with L low-rank
+0 0 0 0
+dition A1 holds. Let T , T and their orthogonal
+L S
+and for any matrix ∆ write
+∆ := P (∆), ∆ := P (∆).
+S,T TS S,T ⊥ T
+S
+⊥
+ne). The low-rank-plus-sparse error cone associated
+(cid:111)
+4∥∆ ∥ , ∥∆ ∥ ≤ 4∥∆ ∥ .
+L,T ∗ S,T ⊥ 1 S,T 1
+s in terms of a seminorm ∥ · ∥ and a bias term.
+L
+nd). There exists a seminorm ∥ · ∥ on Rd×d and a
+L
+r all A,
+), A − A ⟩ ≥ ∥A − A ∥2 − Bias . (7)
+0 0 0 L n
+e gradient at A is controlled in the dual norms of
+0
+2, ∥G (A )∥ ≤ λ /2. (8)
+n 0 ∞ 1
+xity). There exists κ > 0 such that for all ∆ ∈ C,
+2 ≥ κ∥∆∥2 . (9)
+L F
+oracle inequality). Suppose:
+s, and Assumption A1 holds.
+∥ · ∥ , bias Bias , and cone C as above.
+L n
+ˆS. Then there exist universal constants C , C > 0
+1 2
+Bias + C (cid:0) rλ2 + sλ2(cid:1) . (10)
+n 2 ∗ 1
+5
+
+=== PAGE 6 ===
+
+Proof. Let ∆ := Aˆ − A . By optimality of (Lˆ, Sˆ
+0
+L (Aˆ) + λ ∥Lˆ∥ + λ ∥Sˆ∥ ≤
+n ∗ ∗ 1 1
+Writing Lˆ = L + ∆ , Sˆ = S + ∆ and simplif
+0 L 0 S
+L (Aˆ) − L (A ) ≤ −λ (∥L + ∆ ∥
+n n 0 ∗ 0 L
+By Assumption B1,
+∥∆∥2 ≤ −⟨G (A ), ∆⟩ + λ (∥L + ∆ ∥ −
+L n 0 ∗ 0 L ∗
+Using decomposability of the nuclear and ℓ
+1
+∥L + ∆ ∥ − ∥L ∥
+0 L ∗ 0 ∗
+∥S + ∆ ∥ − ∥S ∥
+0 S 1 0 1
+Assumption B2 and duality give
+−⟨G (A ), ∆ ⟩ ≤ ∥G (A )∥ ∥∆
+n 0 L n 0 op
+−⟨G (A ), ∆ ⟩ ≤ ∥G (A )∥ ∥∆
+n 0 S n 0 ∞
+Combining these inequalities and rearranging
+λ 3λ
+∥∆∥2 ≤ − ∗ ∥∆ ∥ + ∗ ∥∆ ∥
+L 2 L,T ⊥ ∗ 2 L,T
+Since the left-hand side is nonnegative, this imp
+λ λ 3
+∗ 1
+∥∆ ∥ + ∥∆ ∥ ≤
+2 L,T ⊥ ∗ 2 S,T ⊥ 1
+For sample sizes such that Bias is dominated
+n
+constants and deduce the cone constraints
+∥∆ ∥ ≤ 3∥∆ ∥ ,
+L,T ⊥ ∗ L,T ∗
+so that ∆ ∈ C. Dropping the negative terms the
+3λ
+∥∆∥2 ≤ ∗ ∥∆ ∥
+L 2 L,T ∗
+Assumption B3 implies
+3λ
+κ∥∆∥2 ≤ ∗ ∥∆ ∥
+F 2 L,T ∗
+Using rank(∆ ) ≤ 2r and ∥∆ ∥ ≤ s gives
+L,T S,T 0
+√
+∥∆ ∥ ≤ 2r ∥∆∥ ,
+L,T ∗ F
+so
+√
+κ∥∆∥2 ≤ C (cid:0) rλ +
+F ∗
+For ∥∆∥ > 0, divide both sides by ∥∆∥ and
+F F
+rλ2 + sλ2 to obtain
+∗ 1
+κ
+∥∆∥2 ≤ C (rλ
+2 F 2
+Renaming constants yields (10).
+
+ˆS) we have
+≤ L (A ) + λ ∥L ∥ + λ ∥S ∥ .
+n 0 ∗ 0 ∗ 1 0 1
+fying gives
+∥ − ∥L ∥ ) − λ (∥S + ∆ ∥ − ∥S ∥ ).
+∗ 0 ∗ 1 0 S 1 0 1
+− ∥L ∥ ) + λ (∥S + ∆ ∥ − ∥S ∥ ) + Bias .
+0 ∗ 1 0 S 1 0 1 n
+norms on T , T ⊥, T , T ⊥ (cf. [4, 2]) yields
+1 L L S S
+≥ ∥∆ ∥ − ∥∆ ∥ ,
+L,T ⊥ ∗ L,T ∗
+≥ ∥∆ ∥ − ∥∆ ∥ .
+S,T ⊥ 1 S,T 1
+λ ∗ (cid:0) (cid:1)
+∆ ∥ ≤ ∥∆ ∥ + ∥∆ ∥ ,
+L ∗ 2 L,T ∗ L,T ⊥ ∗
+λ 1 (cid:0) (cid:1)
+∆ ∥ ≤ ∥∆ ∥ + ∥∆ ∥ .
+S 1 2 S,T 1 S,T ⊥ 1
+g as in the standard proofs (e.g. [2, Lemma 1]) gives
+λ 3λ
+1 1
+∥ − ∥∆ ∥ + ∥∆ ∥ + Bias .
+∗ 2 S,T ⊥ 1 2 S,T 1 n
+plies
+3λ 3λ
+∗ 1
+∥∆ ∥ + ∥∆ ∥ + Bias .
+L,T ∗ S,T 1 n
+2 2
+d by the stochastic terms, we can absorb it into
+∥∆ ∥ ≤ 3∥∆ ∥ ,
+S,T ⊥ 1 S,T 1
+en yields the cone-restricted inequality
+3
++ λ ∥∆ ∥ + Bias .
+1 S,T 1 n
+2
+3λ
+1
++ ∥∆ ∥ + Bias .
+∗ S,T 1 n
+2
+√
+∥∆ ∥ ≤ s ∥∆∥ ,
+S,T 1 F
+√
+(cid:1)
++ sλ ∥∆∥ + Bias .
+1 F n
+d apply ab ≤ κ a2 + 1 b2 with a = ∥∆∥ and b2 ≍
+4 κ F
+λ2 + sλ2) + Bias .
+∗ 1 n
+6
+
+=== PAGE 7 ===
+
+4 Verification of Assumptions B
+The proof of our main oracle inequality follows
+[4, 2], combined with OU/L´evy-specific localizati
+[1]. In this section we collect the two key prob
+norms of the penalties, and restricted strong con
+the low-rank-plus-sparse cone.
+Following [1], we denote by γ(∆ ) the stoch
+n
+which appears in their empirical process and cov
+and Table 1] for the regime-specific expressions
+Weibull, and polynomial-moment cases.
+We now show that the localized contrast ℓ s
+n
+of seminorm, bias term, and tuning parameters.
+tion A0 (OU/L´evy setup) and under the localizat
+Lemma 4.1 (Second-order lower bound for ℓ ).
+n
+seminorm ∥ · ∥ on Rd×d such that, for all A ∈ R
+L
+ℓ (A) − ℓ (A ) − ⟨∇ℓ (A ), A
+n n 0 n 0
+Moreover, we may take ∥ · ∥ = ∥ · ∥ and Bias
+L n,B,η
+and Trunc(T, η) are discretization and truncation
+Disc(T, ∆ ) ≲ d2∆2
+n n
+Proof. A second-order expansion of ℓ around A
+n
+ℓ (A) − ℓ (A ) = ⟨∇ℓ (A ), A
+n n 0 n 0
+where R (A) is a remainder term collecting discre
+n
+ler approximation and the indicator in (2). Unde
+scheme, the analysis of Dexheimer and Jeszka
+uniformly over A, with Disc(T, ∆ ) ≲ d2∆2 and
+n n
+stated choices of ∥ · ∥ and Bias .
+L n
+Lemma 4.2 (Dual norm bounds for the gradient
+contrast at the true drift A . There exist consta
+0
+triplet, the invariant covariance, and the mixin
+large enough and all d ≥ 2,
+(cid:114)
+γ(∆ ) log d
+n
+∥∇ℓ (A )∥ ≤ c ,
+n 0 op op
+T
+with probability at least 1 − 2δ for any fixed δ ∈ (0
+(cid:114)
+γ(∆ ) log d
+n
+λ ≥ 2c ,
+∗ op
+T
+then Assumption B2 holds for ℓ with high proba
+n
+
+B1–B3 for the OU/L´evy Contrast
+the abstract decomposable-penalty framework of
+ion, truncation, and covariance concentration from
+babilistic ingredients: gradient control in the dual
+nvexity (RSC) of the empirical quadratic form on
+hastic scaling factor associated with the mesh ∆ ,
+n
+variance bounds; see in particular [1, Theorem 3.1
+of γ(∆ ) in the continuous, bounded-jump, sub-
+n
+satisfies Assumptions B1–B3 with a suitable choice
+Throughout this section we work under Assump-
+tion and truncation scheme described in Section 2.
+. There exists a nonnegative bias term Bias and a
+n
+Rd×d,
+A − A ⟩ ≥ ∥A − A ∥2 − Bias . (11)
+0 0 L n
+s = Disc(T, ∆ ) + Trunc(T, η), where Disc(T, ∆ )
+n n n
+n terms satisfying
+2 , Trunc(T, η) ≥ 0.
+n
+A shows that, for any A,
+0
+− A ⟩ + ∥A − A ∥2 + R (A),
+0 0 n,B,η n
+etization and truncation errors arising from the Eu-
+er Assumption A0 and the localization/truncation
+shows that |R (A)| ≤ Disc(T, ∆ ) + Trunc(T, η)
+n n
+Trunc(T, η) ≥ 0. Rearranging yields (11) with the
+t). Let ∇ℓ (A ) denote the gradient of the localized
+n 0
+ants c , c > 0, depending only on the OU/L´evy
+op 1
+ng and truncation parameters, such that for all T
+(cid:114)
+γ(∆ ) log(d2)
+n
+∥∇ℓ (A )∥ ≤ c , (12)
+n 0 ∞ 1
+T
+0, 1). In particular, if the tuning parameters satisfy
+(cid:114)
+γ(∆ ) log(d2)
+n
+λ ≥ 2c , (13)
+1 1
+T
+ability.
+7
+
+=== PAGE 8 ===
+
+Proof. Under Assumption A0 and the localizat
+be expressed as an average of matrix-valued ma
+term controlled by discretization and truncation
+and regime-dependent scaling developed by Dex
+one obtains operator- and entrywise-infinity nor
+encodes the dependence on the BDLP tail reg
+of smaller order and can be absorbed into the
+probability statement and the sufficient conditio
+Lemma 4.3 (Restricted strong convexity on the
+rank-plus-sparse error cone associated with (L
+0
+Assumption A1, and the localization/truncation
+complexity threshold T = T (d, r, s, ·) such that,
+0 0
+∥A∥2 ≥ κ ∥A∥
+n,B,η
+with probability at least 1 − 2δ for any fixed δ ∈
+with seminorm ∥ · ∥ = ∥ · ∥ .
+L n,B,η
+Proof. Define the truncated empirical covarianc
+n
+1 (cid:88)
+C := 1
+n,B,η n {Xtk−1
+k=1
+and its population counterpart
+C := E (cid:2)
+∞,B,η π
+Then ∥A∥2 = tr(A⊤C A), and by Assu
+n,B,η n,B,η
+satisfies C ⪰ c I for some c > 0 indepen
+∞,B,η B d B
+the localized and truncated OU/L´evy process im
+deviation ∥C − C ∥ is bounded by 1 c
+n,B,η ∞,B,η op 2
+∥A∥2 = tr (cid:0) A⊤C A (cid:1) +tr (cid:0) A⊤(C −C
+n,B,η ∞,B,η n,B,η ∞,
+for all A ∈ Rd×d, and hence for all A ∈ C. Takin
+Combining Lemmas 4.1, 4.2, and 4.3, we conc
+and truncated OU/L´evy contrast. The abstract
+in the present setting. We now state our main
+estimator.
+5 Main Result: Oracle Inequali
+We now state an oracle inequality for the estima
+identifiability Assumption A1. The statement fo
+of [2], specialized to the localized/truncated OU
+
+tion/truncation scheme, the gradient ∇ℓ (A ) can
+n 0
+artingale differences plus a deterministic remainder
+n. Using the martingale concentration inequalities
+xheimer and Jeszka for the filtered L´evy increments,
+rm bounds of the form (12), where the factor γ(∆ )
+n
+gime and the mesh ∆ . The remainder term is
+n
+e constants c , c for T large enough. The high-
+op 1
+ons (13) for Assumption B2 follow directly.
+e low-rank-plus-sparse cone). Let C denote the low-
+, S ) as in Definition 3.1. Under Assumption A0,
+0
+scheme, there exists a constant κ > 0 and a sample-
+, for all T ≥ T ,
+0
+∥2 , for all A ∈ C, (14)
+F
+∈ (0, 1). In particular, Assumption B3 holds for ℓ
+n
+ce matrix
+X X⊤ ,
+1 ∈B, ∥∆X k ∥≤η} t k−1 t k−1
+(cid:2) X X⊤ 1 (cid:3) .
+0 0 {X0∈B}
+umption A0 the truncated population covariance
+ndent of d. The covariance concentration results for
+mply that, for T ≥ T (d, r, s, ·), the operator norm
+0
+c with high probability. Consequently,
+B
+)A (cid:1) ≥ (cid:0) c −∥C −C ∥ (cid:1) ∥A∥2 ≥ c B ∥A∥2
+,B,η B n,B,η ∞,B,η op F 2 F
+ng κ = c /2 yields (14).
+B
+clude that Assumptions B1–B3 hold for the localized
+oracle framework of Theorem 3.2 therefore applies
+oracle inequality for the low-rank-plus-sparse drift
+ity
+ator (5) when A belongs to A(r, s) and satisfies the
+0
+ollows the abstract decomposable-penalty template
+U/L´evy contrast and the two-penalty structure.
+8
+
+=== PAGE 9 ===
+
+5.1 Oracle inequality for low-rank-plu
+We now state and prove our main oracle ineq
+A belongs to the low-rank-plus-sparse class A
+0
+assumption A1.
+Theorem 5.1 (Oracle inequality for low-rank-p
+hold and let A = L +S ∈ A(r, s) with rank(L
+0 0 0 0
+truncation level η, observation horizon T , and m
+hold, and assume in addition that
+Disc(T, ∆ ) ≲ d2∆2 , Trunc(T
+n n
+Let (Lˆ, Sˆ) be any solution of (5) with tuning
+Lˆ + Sˆ. Then there exist constants C , C > 0, de
+1 2
+covariance, the mixing constants and the localiza
+∥Aˆ − A ∥2 ≤ C (cid:8) Disc(T, ∆ ) + Tru
+0 F 1 n
+with probability at least 1 − δ. In particular, i
+errors are of smaller order than the stochastic t
+γ(∆
+∥Aˆ − A ∥2 ≲
+0 F T
+up to logarithmic factors encoded in γ(∆ ).
+n
+Remark 5.2. The decomposition in (15) mirrors
+term depending on ∆ , a truncation error gover
+n
+error term. The latter reflects the low-rank-plus-
+over purely sparse bounds when a low-rank struc
+A1 ensures that the decomposition A = L + S
+0 0
+Remark 5.3 (Dominance of discretization and tru
+Trunc(T, η) into the stochastic term is justified
+rived in [1]. In particular, for each L´evy regim
+jumps, sub-Weibull tails, and polynomial p-th m
+an explicit lower bound T = T (d, r, s, ε) on the
+0 0
+Disc(T, ∆ ) + Trunc
+n
+on the high-probability event E. Throughout th
+the bias term into the constants C , C in the fina
+1 2
+of T on (d, r, s, ε) is made explicit in our corol
+0
+Table 1.
+Proof. By Lemma 4.1, the localized and truncat
+seminorm ∥ · ∥ = ∥ · ∥ and bias term
+L n,B,η
+Bias = Disc(T,
+n
+
+us-sparse drift
+quality for the estimator (5) when the true drift
+A(r, s) and satisfies the rank–sparsity incoherence
+plus-sparse drift). Suppose Assumptions A0 and A1
+) ≤ r and ∥S ∥ ≤ s. Choose the localization set B,
+0 0 0
+mesh ∆ so that the conclusions of Lemmas 4.1–4.3
+n
+(cid:18) (cid:19)
+γ(∆ )
+n
+T, η) = o (r log d + s log d) .
+T
+parameters (λ , λ ) satisfying (13), and set Aˆ =
+∗ 1
+epending only on the OU/L´evy triplet, the invariant
+ation/truncation scheme, such that
+(cid:9) γ(∆ n )
+unc(T, η) + C (r log d + s log d), (15)
+2
+T
+in regimes where the discretization and truncation
+term, we have the high-dimensional rate
+∆ )
+n
+(r log d + s log d),
+T
+the four-term structure in [1]: a discretization error
+rned by the L´evy measure and η, and a stochastic
+-sparse complexity of A through r and s, improving
+0
+cture is present, while the identifiability assumption
+S is well-defined.
+0
+uncation bias). The step where we absorb Disc(T, ∆ )+
+n
+d by the high-frequency and large-T conditions de-
+me considered there (continuous BDLP, bounded
+moments), Corollary 3.3 and Table 1 in [1] provide
+e observation horizon such that
+(cid:16) (cid:17)
+c(T, η) = o rλ2 + sλ2
+∗ 1
+he proof we work with T ≥ T (d, r, s, ε) and absorb
+0
+al oracle inequality. The regime-specific dependence
+llaries, following the corresponding entries in their
+ted OU/L´evy contrast satisfies Assumption B1 with
+∆ ) + Trunc(T, η).
+n
+9
+
+=== PAGE 10 ===
+
+By Lemma 4.2, Assumption B2 holds with high p
+satisfy (13). By Lemma 4.3, Assumption B3 ho
+Therefore all assumptions of Theorem 3.2 ar
+∥Aˆ − A ∥2 ≤ C (cid:8) Disc(T, ∆ )
+0 F 1 n
+with probability at least 1 − δ, for suitable cons
+Finally, using (13), we have
+γ(∆ ) log d
+λ2 ≲ n , λ2 ≲
+∗ T 1
+and hence
+γ(∆
+rλ2 + sλ2 ≲
+∗ 1 T
+Substituting this into the preceding display yi
+regimes where the discretization and truncatio
+term.
+6 Corollaries for Different L´evy
+We now specialize Theorem 5.1 to the four tail
+case we take the truncation level η, the observa
+as in their Table 1, and obtain the same discre
+but with an effective complexity factor (r + s) i
+Corollary 6.1 (Continuous BDLP). Assume A
+nian motion (ν ≡ 0). Let η and T be chosen a
+that condition (N) holds and the discretization e
+Disc(T, ∆
+and the truncation error is negligible. In this re
+factors), so that
+γ(∆
+n
+T
+(cont)
+Let T (d, ε) be the minimal observation horiz
+0
+(cont)
+in [1]. Then, for all T ≥ T (d, ε), the estim
+0
+∥Aˆ − A ∥2 ≤ C d2∆2 +
+0 F 1 n
+with probability at least 1 − ε. In particular, if d
+γ(∆
+∥Aˆ − A ∥2 ≲
+0 F T
+up to logarithmic factors.
+
+probability provided the tuning parameters (λ , λ )
+∗ 1
+olds on the low-rank-plus-sparse cone C.
+re satisfied, and we obtain
+) + Trunc(T, η) (cid:9) + C (cid:0) rλ2 + sλ2(cid:1)
+2 ∗ 1
+stants C , C > 0.
+1 2
+γ(∆ ) log(d2) γ(∆ ) log d
+≲ n ≍ n ,
+T T
+∆ )
+n
+(r log d + s log d).
+T
+ields (15). The final rate follows immediately in
+on terms are of smaller order than the stochastic
+y Regimes
+regimes for the BDLP Z considered in [1]. In each
+ation horizon T , and thus γ(∆ ) of the same order
+n
+etization/truncation behavior as in the sparse case,
+in the stochastic term of the risk bound.
+A0 and that the BDLP Z is continuous, i.e. a Brow-
+as in the “Z continuous” row of Table 1 in [1], so
+error satisfies
+∆ ) ≲ d2∆2
+n n
+egime γ(∆ ) is of constant order (up to logarithmic
+n
+) 1
+n
+≍ .
+T
+zon appearing in the “Z continuous” row of Table 1
+mator Aˆ satisfies
+γ(∆ n ) (cid:0) (cid:1)
++ C r log d + s log d
+2
+T
+d2∆2 = o (cid:0) (r + s) γ(∆ ) log d/T (cid:1) , then
+n n
+∆ n ) (cid:0) (cid:1)
+r log d + s log d ,
+T
+10
+
+=== PAGE 11 ===
+
+Corollary 6.2 (BDLP with bounded jumps).
+jumps, i.e. there exists z > 0 such that ν({z
+0
+has bounded jumps” row of Table 1 in [1], so th
+negligible; in particular,
+Disc(T, ∆
+In this regime, γ(∆ ) is again of constant ord
+n
+(bnd)
+T (d, ε) be the minimal observation horizon
+0
+(bnd)
+[1]. Then, for all T ≥ T (d, ε), Theorem 5.1
+0
+∥Aˆ − A ∥2 ≤ C d2∆2 +
+0 F 1 n
+with probability at least 1 − ε. When d2∆2 is d
+n
+holds up to logarithmic factors.
+Corollary 6.3 (Sub-Weibull BDLP). Assume
+is sub-Weibull with parameter α > 0 in the sen
+sub-Weibull” row of Table 1 in [1], so that condit
+then
+Disc(T, ∆
+In this regime γ(∆ ) grows only poly-logarithm
+n
+(subW)
+specified in Table 1. Let T (d, ε) denote th
+0
+(subW)
+Table 1 in [1]. Then, for all T ≥ T (d, ε) a
+0
+∥Aˆ − A ∥2 ≤ C d2∆2 +
+0 F 1 n
+and whenever d2∆2 = o (cid:0) (r + s) γ(∆ ) log d/T (cid:1)
+n n
+depending on α.
+Corollary 6.4 (Polynomial-moment BDLP). A
+moment for some p > 2, as in the “Z admits a
+T according to that row so that condition (N) h
+Disc(T, ∆
+In this heavy-tailed regime, γ(∆ ) grows polyno
+n
+specified in Table 1 and Remark 3.4 of [1]. Le
+(poly)
+from that row. Then, for all T ≥ T (d, ε)
+0
+1 − ε,
+∥Aˆ − A ∥2 ≤ C d2∆2 +
+0 F 1 n
+and hence, as soon as d2∆2 is negligible compare
+n
+rate up to logarithmic factors depending on p.
+
+. Assume A0 and that the BDLP Z has bounded
+: ∥z∥ > z }) = 0. Choose η and T as in the “Z
+0
+hat condition (N) holds and the truncation error is
+∆ ) ≲ d2∆2 .
+n n
+der (up to logarithms), so γ(∆ )/T ≍ 1/T . Let
+n
+from the “Z has bounded jumps” row of Table 1 in
+1 yields
+γ(∆ n ) (cid:0) (cid:1)
++ C r log d + s log d
+2
+T
+dominated by (r + s) γ(∆ ) log d/T , the same rate
+n
+A0 and that the BDLP Z (or its L´evy measure ν)
+nse of [1]. Choose η and T according to the “Z is
+tion (N) holds and the truncation error is negligible;
+∆ ) ≲ d2∆2 .
+n n
+mically in T, ∆ (with exponent depending on α) as
+n
+he corresponding minimal observation horizon from
+and with probability at least 1 − ε,
+γ(∆ n ) (cid:0) (cid:1)
++ C r log d + s log d ,
+2
+T
+we obtain the same rate up to logarithmic factors
+Assume A0 and that the BDLP Z admits only a p-th
+p-th moment” row of Table 1 in [1]. Choose η and
+holds and the truncation error is negligible; then
+∆ ) ≲ d2∆2 .
+n n
+omially in T, ∆ with exponent determined by p, as
+n
+(poly)
+et T (d, ε) be the minimal observation horizon
+0
+Theorem 5.1 implies that, with probability at least
+γ(∆ n ) (cid:0) (cid:1)
++ C r log d + s log d ,
+2
+T
+ed to (r + s) γ(∆ ) log d/T , we again have the same
+n
+11
+
+=== PAGE 12 ===
+
+References
+[1] N. Dexheimer and N. Jeszka. Sparse estim
+Uhlenbeck processes from discrete observatio
+[2] A. Agarwal, S. Negahban, and M. J. Wain
+relaxation: Optimal rates in high dimensions
+[3] V. Chandrasekaran, P. A. Parrilo, and A. S.
+via convex optimization. Annals of Statistics
+[4] S. N. Negahban and M. J. Wainwright. Estim
+high-dimensional scaling. Annals of Statistic
+[5] B. Recht, M. Fazel, and P. A. Parrilo. Gua
+equations via nuclear norm minimization. SI
+
+mation for high-dimensional L´evy-driven Ornstein–
+ons. arXiv preprint arXiv:2603.06176, 2026.
+nwright. Noisy matrix decomposition via convex
+s. Annals of Statistics, 40(2):1171–1197, 2012.
+Willsky. Latent variable graphical model selection
+s, 40(4):1935–1967, 2012.
+mation of (near) low-rank matrices with noise and
+cs, 39(2):1069–1097, 2011.
+aranteed minimum-rank solutions of linear matrix
+IAM Review, 52(3):471–501, 2010.
+12
